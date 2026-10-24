@@ -27,11 +27,18 @@ Target look: the canvas preview <https://claude.ai/artifact/N422zWcJphBrzWR2AQYZ
 
 ## To do
 
-1. Apps Script widgets (README §1.4) — blocked until **researchclub@docchula.com** is signed in to Chrome
-   (only the owner can approve Google's permission screen). Then embed:
-   Home `stats` + `open-now` (hero right column), `events-home`, `showcase-home`;
-   Opportunities `opportunities`; Events `events`; Showcase `showcase`.
-2. Review the draft, then Publish (not published since the first publish — ask the owner first).
+1. **Widgets (README §1)** - code is already pasted into an Apps Script project "MDCU site widgets"
+   (owner: punnawit.wsr@docchula.com; move or re-create under researchclub@docchula.com later so it
+   survives graduation). Waiting only on the owner's *Allow* clicks:
+   - one-time project "MDCU one-time setup" -> run `setupWebsiteData()` (creates the "Website data"
+     sheet + showcase form; read the IDs/links in the execution log, then delete that project);
+   - widgets project -> Deploy > New deployment > Web app > "Anyone" (the first dialog is open at
+     "Authorize access"), then a second deployment "Anyone within docchula.com" for the members copy.
+   Then: put the sheet ID and members URL in `Config.gs`, create a new version, and embed
+   (Sites: Insert > Embed > By URL + `?view=...`): Home `stats` + `open-now` (hero right column),
+   `events-home`, `showcase-home`; Opportunities `opportunities`; Events `events`; Showcase `showcase`.
+2. Add the faculty form link (Opportunities "For faculty") and the showcase form link (Showcase hero).
+3. Review the draft, then Publish (not published since the first publish - ask the owner first).
 
 ## Editor tips (for browser automation)
 
