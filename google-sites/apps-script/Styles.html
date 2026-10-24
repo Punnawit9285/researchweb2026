@@ -67,6 +67,11 @@
   .empty { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; padding: 32px 28px; border: 1px solid var(--line); background: var(--ground); }
   .empty p { margin: 0; }
   .empty .head { font-size: 19px; font-weight: 600; color: var(--navy-800); }
+  .empty.row { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 16px 24px; padding: 22px 24px; }
+  .empty.row .txt { display: flex; flex-direction: column; gap: 4px; flex: 1 1 320px; min-width: 0; }
+  .empty.row .head { font-size: 17px; }
+  .empty.row .txt p + p { font-size: 14.5px; line-height: 1.6; color: var(--ink-2); }
+  .ibox { display: inline-flex; align-items: center; justify-content: center; flex: none; width: 44px; height: 44px; background: var(--sky-50); color: var(--link); }
   .error { padding: 24px; border: 1px solid var(--line); background: var(--ground); color: var(--ink-2); }
   body.dark .error { background: var(--navy-900); border-color: rgba(255,255,255,.14); color: var(--on-dark-2); }
 
@@ -156,7 +161,6 @@
   .ehome { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.9fr); gap: 56px; align-items: start; padding: 2px; }
   .upcard { display: flex; flex-direction: column; gap: 14px; background: #FFFFFF; border: 1px solid var(--line); padding: 28px; }
   .upcard p { margin: 0; }
-  .upcard .ibox { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: var(--sky-50); color: var(--link); }
   .upcard .head { font-size: 19px; font-weight: 600; line-height: 1.35; color: var(--navy-800); }
   .upcard .txt { font-size: 15.5px; line-height: 1.65; color: var(--ink-2); }
   .upcard .btn { align-self: flex-start; font-size: 15px; }

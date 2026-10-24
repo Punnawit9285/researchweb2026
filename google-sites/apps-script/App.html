@@ -117,6 +117,11 @@
   function emptyBlock(head, body, actionHtml) {
     return '<div class="empty"><p class="head">' + esc(head) + '</p><p>' + esc(body) + '</p>' + (actionHtml || '') + '</div>';
   }
+  /** Wide variant: icon, text, then the action on the right. */
+  function emptyRow(iconName, head, body, actionHtml) {
+    return '<div class="empty row"><span class="ibox">' + icon(iconName) + '</span>' +
+      '<div class="txt"><p class="head">' + esc(head) + '</p><p>' + esc(body) + '</p></div>' + (actionHtml || '') + '</div>';
+  }
   function followButton() {
     return LINKS.instagram ? extLink(LINKS.instagram, icon('ig') + 'Follow @researchclub.mdcu', 'btn ghost') : '';
   }
@@ -476,11 +481,13 @@
       return;
     }
     app.innerHTML = '<div class="pad">' +
-      (CONFIG.fullPage ? '<div class="topbar"><span class="label">MDCU Research Division · Upcoming events</span><a href="' + esc(LINKS.eventsPage || LINKS.site || '#') + '">Back to the website</a></div>' : '') +
+      (CONFIG.fullPage
+        ? '<div class="topbar"><span class="label">MDCU Research Division · Upcoming events</span><a href="' + esc(LINKS.eventsPage || LINKS.site || '#') + '">Back to the website</a></div>'
+        : '<h2 class="lbl" style="margin:0 0 14px">Upcoming</h2>') +
       (upcoming.length
         ? nextCard(upcoming[0]) + (upcoming.length > 1
           ? '<ol style="list-style:none;margin:8px 0 0;padding:0">' + upcoming.slice(1).map(eventRow).join('') + '</ol>' : '')
-        : emptyBlock('No upcoming events yet', 'New dates are posted on Instagram first. This list updates on its own as soon as the team adds the next event.', followButton())) +
+        : emptyRow('cal', 'No upcoming events yet', 'New dates are posted on Instagram first. This list updates on its own as soon as the team adds the next event.', followButton())) +
       '</div>';
   }
 
