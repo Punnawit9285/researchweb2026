@@ -150,33 +150,35 @@ fixed height in Sites; anything taller scrolls inside the box, so start with the
    Left — *Small text* "MDCU Research Division", title "Today’s research, / tomorrow’s cure." (second line in
    amber `#F4B13A`), *Small text* credit "Inspired by Mayo Clinic’s “Tomorrow’s Cure”", the old subtitle
    "A student-led research club affiliated with the Student Union of the Faculty of Medicine, Chulalongkorn
-   University", button **Find a research project** → Opportunities, embed `?view=stats` (110 px).
-   Right — embed `?view=open-now` (470 px).
+   University", then embed `?view=hero-actions` (the two buttons and the live numbers, about 660 × 200 px).
+   Right — embed `?view=open-now` (about 460 × 520 px). Double-click the empty right half of the section to
+   insert it there.
 2. **MDCU Research club** — the old quote ("We are the community of medical students…") beside the group photo,
    **About us** button.
 3. **Our mission** (Emphasis 1) — the two old statements, each with its photo and the old buttons
    (**Researcher requirements**, **Previous events**, **Researcher profiles**).
 4. **Our impact** — four columns: Research Workshop, Lab tour, Research Talk (old lines) and Opportunities Board.
-5. **Events** (Emphasis 1) — left: embed `?view=events-home` (520 px). Right: **What's new** posts — each one an
-   image (poster) beside a title and a collapsible text group, exactly like the current posts.
-6. **Research showcase** — embed `?view=showcase-home` (780 px), button **Explore the showcase**.
+5. **Events** (Emphasis 1) — eyebrow, title and **All events** link, then embed `?view=events-home` (about 630 px):
+   the next event plus the two latest activities as short "What's new" teasers. The full posts (poster +
+   collapsible text) live on the Events page.
+6. **Research showcase** — title, intro and **Explore the showcase** link, embed `?view=showcase-home` (about 730 px).
 7. **Get involved** (Emphasis 2) — three columns with buttons (Opportunities, Instagram, Facebook group).
 
-**Opportunities** — intro text, a three-step "How it works" row, embed `?view=opportunities` (1100 px),
+**Opportunities** — intro text, a three-step "How it works" row, embed `?view=opportunities` (about 1150 px),
 section **Emphasis 1** "For faculty" with **Post a project** (faculty form) and **Email the club** buttons.
 
-**Events** — intro text, embed `?view=events` (560 px), then **Previous events**: the existing activity posts
+**Events** — intro text, embed `?view=events` (about 330 px), then **Previous events**: the existing activity posts
 (poster or photos + title + collapsible text), newest first. To add one, duplicate a post section
 (**⋮ › Duplicate section**), replace the image (**Insert › Images** or click the image › **Replace image**) and
 the text, and drag it to the top.
 
 **Showcase** — Emphasis 2 header with the old intro "Researcher profiles & project highlights by MDCU's researchers"
-and an **Add your presentation** button (showcase form), embed `?view=showcase` (1200 px), and "Earlier highlights"
-from the Alumni Hall of Fame page.
+and embed `?view=showcase-stats` (about 120 px) on the left, an **Add your presentation** button (showcase form) on
+the right; then embed `?view=showcase` (about 1400 px) and the year-by-year archive of the old conference pages.
 
 **About** — mission (two columns on Emphasis 2), Executive Board 2026 (board poster or image + name + role grid),
-Core Team photo, contact list, Google Maps embed. **Footer** (Settings › Footer): logo, one-line description,
-email, Instagram, Facebook, address.
+Core Team photo, contact list, Google Maps embed. **Footer**: three columns — name and description (with the ©
+line), Contact (email, Instagram), Find us (address).
 
 ---
 
