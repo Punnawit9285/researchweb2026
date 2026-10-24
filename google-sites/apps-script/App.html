@@ -34,7 +34,7 @@
   function icon(name) {
     return '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">' + ICONS[name] + '</svg>';
   }
-  /** External links open in a new tab; page links use the <base target="_top">. */
+  /** External links open in a new tab; page links follow the <base> target (see boot). */
   function extLink(url, html, cls) {
     return '<a' + (cls ? ' class="' + cls + '"' : '') + ' href="' + esc(url) + '" target="_blank" rel="noopener">' + html + '</a>';
   }
@@ -363,8 +363,11 @@
               (o.seats ? '<span class="seats">' + esc(plural(Number(o.seats), 'seat', 'seats')) + '</span>' : '') +
               '</span></a></li>';
           }).join('') + '</ul>'
-        : '<p style="margin:0 0 12px;color:var(--on-dark-2)">New projects for this year are on their way — check back soon.</p>') +
-      '<a class="all" href="' + esc(LINKS.opportunitiesPage) + '">Browse all ' + plural(DATA.total || 0, 'project', 'projects') + icon('arrow') + '</a>' +
+        : '<p style="margin:0 0 12px;color:var(--on-dark-2)">' + (DATA.error
+            ? 'This year’s projects are listed on the Opportunities page.'
+            : 'New projects for this year are on their way — check back soon.') + '</p>') +
+      '<a class="all" href="' + esc(LINKS.opportunitiesPage) + '">Browse all ' +
+        (DATA.total ? plural(DATA.total, 'project', 'projects') : 'projects') + icon('arrow') + '</a>' +
       (member ? '' : '<p class="unlock">' + icon('lock') + 'Advisors and contacts unlock with your ' + esc(MEMBER_DOMAIN) + ' account</p>') +
       '</aside>';
   }
@@ -719,11 +722,17 @@
     'showcase-home': renderShowcaseHome
   };
 
+  // Google Sites runs embeds in a frame that isn't allowed to navigate the page around it, so links to the
+  // site's pages open a new tab there. The standalone page (&full=1) can go back to the site in place.
+  if (!CONFIG.fullPage) document.querySelector('base').setAttribute('target', '_blank');
+
   // Each embed sits on a Google Sites section; its background has to match that section exactly.
   var DARK = ['open-now', 'hero-actions', 'stats', 'showcase-stats'];
   if (DARK.indexOf(VIEW) !== -1) document.body.classList.add('dark');
   if (VIEW === 'events-home' && !CONFIG.fullPage) document.body.classList.add('ground');
-  if (DATA.error || !VIEWS[VIEW]) {
+  // The Home hero keeps its buttons and links even when the sheets can't be read.
+  var WORKS_WITHOUT_DATA = ['hero-actions', 'open-now'];
+  if (!VIEWS[VIEW] || (DATA.error && WORKS_WITHOUT_DATA.indexOf(VIEW) === -1)) {
     app.innerHTML = '<p class="error">This section couldn\'t load right now. Please refresh the page' +
       (LINKS.email ? ', or email <a href="mailto:' + esc(LINKS.email) + '">' + esc(LINKS.email) + '</a> if it keeps happening' : '') + '.</p>';
     return;
