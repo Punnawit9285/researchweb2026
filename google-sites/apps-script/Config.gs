@@ -19,10 +19,10 @@ var CONFIG = {
   MEMBER_DOMAIN: 'docchula.com',
   PUBLIC_OPPORTUNITY_FIELDS: ['id', 'kind', 'status', 'title', 'lang', 'dept', 'keywords', 'seats'],
 
-  // Web app URL of the members' copy of this project (deployed for "Anyone within docchula.com").
-  // The "Sign in" button on the public site opens it. Leave blank in the members' copy itself,
-  // or if the whole site stays docchula.com-only.
-  MEMBERS_APP_URL: '',
+  // Web app URL of the members' deployment of this project (Who has access: "Anyone within docchula.com").
+  // The "Sign in" button on the public site opens it. If blank, the button opens the public deployment
+  // as its own page instead.
+  MEMBERS_APP_URL: 'https://script.google.com/a/macros/docchula.com/s/AKfycbxGjlKCSqzYDLJUrKNKCavVAkAsEGTc46IAmL7bc7lRYL5ZvW-ZRU1ljJzUk8aGSBeQ/exec',
 
   // How long the site may show slightly old data after a sheet edit.
   CACHE_SECONDS: 300,

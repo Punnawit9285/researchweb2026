@@ -72,38 +72,37 @@ headers (see `templates/showcase-import.csv`) and tick `Approved` for those whos
 > Photos and posters from Drive only display if the file is shared as *Anyone with the link — Viewer*.
 > Otherwise the widget quietly shows the presenter's initial instead, or leaves the poster out.
 
-### 1.4 Apps Script web app — two copies
+### 1.4 Apps Script web app — one project, two deployments
 
 Opportunity details (advisor, contact, timeline, description, what to send) are only for MDCU students.
 The script removes them on the server for anyone who isn't signed in with a **docchula.com** account, so they
 never reach a signed-out visitor's browser. Titles, departments, topics and seat counts stay public.
 
-Google only tells a script who the visitor is in some setups, so deploy the same code twice:
+Google only tells a script who the visitor is in some setups, so the same project is deployed twice:
 
-| Copy | Who has access | Used for |
+| Deployment | Who has access | Used for |
 | --- | --- | --- |
 | **Public** | Anyone | Every embed on the site. Details are hidden unless Google reports a docchula.com visitor. |
 | **Members** | Anyone within docchula.com | Opened by the "Sign in with docchula.com" button. Google asks for a docchula.com sign-in, then shows everything. |
 
-For each copy:
-
-1. <https://script.google.com> → **New project** (*MDCU site widgets — public* / *— members*).
+1. <https://script.google.com> → **New project** (*MDCU site widgets*), owned by the club's docchula.com account.
 2. **Project Settings** → tick *Show "appsscript.json" manifest file*, then paste `apps-script/appsscript.json`.
 3. Create the files and paste their contents: `Parse.gs`, `Config.gs`, `Code.gs` (script files) and
    `Widget.html`, `Styles.html`, `App.html` (HTML files — name them without the extension).
    *(Or use [clasp](https://github.com/google/clasp): `clasp create --type webapp --rootDir google-sites/apps-script`, then `clasp push`.)*
 4. In `Config.gs`, set `WEBSITE_DATA_SHEET_ID` (the long ID in the sheet's URL) and the two form links.
-5. **Deploy › New deployment › Web app** — *Execute as:* **Me**, *Who has access:* as in the table.
-   Approve the permission prompt: the script can **read** spreadsheets and see the visitor's email address
-   (only to check that it ends in `@docchula.com`; it isn't stored).
-6. Copy the web app URL and open it with `?view=opportunities` on the end to check it works.
+5. Run `authorize` once from the editor and approve the prompt (tick every box). Google words it as access to
+   your spreadsheets because opening a sheet by its ID has no read-only option; the script only reads them. It also
+   sees the visitor's email address, only to check that it ends in `@docchula.com` (it isn't stored).
+6. **Deploy › New deployment › Web app** — *Execute as:* **Me**, *Who has access:* **Anyone**. This is the public URL
+   used in every embed. Then **Deploy › New deployment** again with *Who has access:* **Anyone within docchula.com**.
+7. Paste the members URL into `MEMBERS_APP_URL` in `Config.gs`, save, and move both deployments to a new version
+   (below). Open the public URL with `?view=opportunities` on the end to check it works.
 
-Finally, paste the **members** URL into `MEMBERS_APP_URL` in the **public** copy's `Config.gs` and redeploy it.
-
-If the whole site stays docchula.com-only, one copy is enough: deploy it for *Anyone within docchula.com* and
+If the whole site stays docchula.com-only, one deployment is enough: deploy it for *Anyone within docchula.com* and
 leave `MEMBERS_APP_URL` blank.
 
-After a code change, use **Deploy › Manage deployments › Edit › New version** so the URL stays the same.
+After a code change, use **Deploy › Manage deployments › Edit › New version** for each deployment, so the URLs stay the same.
 To show a sheet edit immediately instead of within 5 minutes, run `clearCache` from the editor.
 
 ---
