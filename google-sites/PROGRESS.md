@@ -13,10 +13,13 @@ Target look: the canvas preview <https://claude.ai/artifact/N422zWcJphBrzWR2AQYZ
 - Home: old image header removed; new dark hero section (eyebrow, "Today's research, / tomorrow's cure.",
   Mayo credit, Thai line, original subtitle) with **Find a research project** → Opportunities and
   **See what's on** → Events. The right half of the hero is left empty for the `open-now` embed.
+- Home section 01 "MDCU Research club": eyebrow "01 — WHO WE ARE", left-aligned heading and quote,
+  white (Style 1) background. Still to do there: **About us** button → *Text* style; one empty line
+  under the quote.
 
 ## To do
 
-1. Home sections 01–06 restyled like the preview (eyebrows, left-aligned headings, "Our impact" cards,
+1. Home sections 02–06 restyled like the preview (eyebrows, left-aligned headings, "Our impact" cards,
    Events split, Showcase, Get involved), footer in three columns.
 2. Opportunities, Events, Showcase, About pages restyled the same way.
 3. Apps Script widgets (README §1.4) — blocked until **researchclub@docchula.com** is signed in to Chrome
