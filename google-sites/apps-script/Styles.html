@@ -113,7 +113,6 @@
   }
 
   body.ground { background: var(--ground); }
-  .h2 { margin: 0 0 22px; font-size: 30px; font-weight: 700; line-height: 1.2; letter-spacing: -.01em; color: var(--navy-800); }
   .lbl { margin: 0; font-family: var(--mono); font-size: 12.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--navy-800); }
   .btn.big { min-height: 52px; padding: 0 24px; font-size: 16px; }
   a.plain { font-weight: 500; font-size: 15.5px; }
@@ -249,7 +248,7 @@
   .nums div { padding: 28px 24px 28px 0; }
   .nums .n { margin: 0; font-size: 60px; font-weight: 700; line-height: 1; letter-spacing: -.02em; color: var(--navy-800); }
   .nums .l { margin: 10px 0 0; font-family: var(--mono); font-size: 12.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
-  .sgrid.home { margin-top: 48px; gap: 24px; }
+  .sgrid.home { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 48px; gap: 24px; }
   .sgrid.home .card { gap: 16px; padding: 28px; }
   .sgrid.home .card .title { font-size: 18px; }
   .sgrid.home .card .by { padding-top: 16px; font-size: 14.5px; }

@@ -155,11 +155,16 @@
     return 110 + (h % 70);
   }
 
-  /** Opens the members' copy of this widget, or Google sign-in for the club's domain. */
+  /**
+   * Inside Google Sites, browsers often hide who is signed in from the embed, so the link opens the finder as its
+   * own page (the members' copy when there is one). On that page it goes to Google sign-in and straight back.
+   */
   function signInLink(label, cls) {
-    if (CONFIG.membersUrl) return extLink(CONFIG.membersUrl + '?view=opportunities&full=1', icon('lock') + esc(label), cls);
+    var base = CONFIG.membersUrl || CONFIG.self;
+    var full = base ? base + '?view=opportunities&full=1' : '';
+    if (full && !CONFIG.fullPage) return extLink(full, icon('lock') + esc(label), cls);
     var url = 'https://accounts.google.com/ServiceLogin?hd=' + encodeURIComponent(MEMBER_DOMAIN) +
-      '&continue=' + encodeURIComponent(LINKS.opportunitiesPage || LINKS.site || '');
+      '&continue=' + encodeURIComponent(full || LINKS.opportunitiesPage || LINKS.site || '');
     return '<a class="' + cls + '" href="' + esc(url) + '">' + icon('lock') + esc(label) + '</a>';
   }
 
@@ -289,7 +294,7 @@
     }
 
     app.innerHTML = '<div class="pad">' +
-      (CONFIG.fullPage ? fullPageBar() : '<h2 class="h2">Find a project</h2>') +
+      (CONFIG.fullPage ? fullPageBar() : '') +
       (member ? memberNote() : signInBanner()) +
       '<div class="toolbar">' +
         '<div class="grow"><label class="label" for="q">Search</label><div class="search">' + icon('search') +
@@ -625,7 +630,7 @@
         ? '<div class="topbar"><span style="display:flex;flex-direction:column;gap:2px"><span class="label">MDCU Research Division</span>' +
           '<span style="font-size:22px;font-weight:700;line-height:1.2;color:var(--navy-800)">Research showcase</span></span>' +
           '<a href="' + esc(LINKS.showcasePage || LINKS.site || '#') + '">Back to the website</a></div>'
-        : '<h2 class="h2">Browse presentations</h2>') +
+        : '') +
       '<div class="toolbar">' +
         '<div class="grow"><label class="label" for="q">Search</label><div class="search">' + icon('search') +
           '<input id="q" class="field" type="search" autocomplete="off" placeholder="Title, field, conference or presenter"></div></div>' +
