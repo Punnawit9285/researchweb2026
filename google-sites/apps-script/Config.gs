@@ -8,7 +8,7 @@ var CONFIG = {
   OPPORTUNITIES_SHEET_ID: '1rauSCAn-TY2GrytPxR-Fz4000X8-A7PXW3-8Hr10X4g',
 
   // "Website data" — holds the Events tab and the Showcase tab (linked to the showcase form).
-  WEBSITE_DATA_SHEET_ID: 'PASTE_WEBSITE_DATA_SHEET_ID_HERE',
+  WEBSITE_DATA_SHEET_ID: '1wwTHjyXvQPko8dfZXaXaFK4Oe9wR1CdbtjD0OkfbGjk',
   EVENTS_TAB: 'Events',
   SHOWCASE_TAB: 'Showcase',
 
@@ -38,11 +38,11 @@ var CONFIG = {
   LINKS: {
     site: 'https://sites.google.com/docchula.com/mdcuresearch-docchula',
     opportunitiesPage: 'https://sites.google.com/docchula.com/mdcuresearch-docchula/opportunities',
-    eventsPage: 'https://sites.google.com/docchula.com/mdcuresearch-docchula/events',
-    showcasePage: 'https://sites.google.com/docchula.com/mdcuresearch-docchula/showcase',
+    eventsPage: 'https://sites.google.com/docchula.com/mdcuresearch-docchula/previous-events',
+    showcasePage: 'https://sites.google.com/docchula.com/mdcuresearch-docchula/researcher-profile',
     instagram: 'https://www.instagram.com/researchclub.mdcu/',
     email: 'researchclub@docchula.com',
     facultyForm: '',
-    showcaseForm: ''
+    showcaseForm: 'https://docs.google.com/forms/d/e/1FAIpQLSeovLgBQ3cEw8nlmHkjzG6HwR89R5AEMyThhRb5SWkAS0NGAg/viewform'
   }
 };
