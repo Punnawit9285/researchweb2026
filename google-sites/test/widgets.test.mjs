@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import * as fixtures from './fixtures.mjs';
 import { render, payload } from './harness.mjs';
 
-const VIEWS = ['opportunities', 'open-now', 'stats', 'events-home', 'events', 'showcase-home', 'showcase'];
+const VIEWS = ['opportunities', 'open-now', 'hero-actions', 'stats', 'events-home', 'events', 'showcase-home', 'showcase-stats', 'showcase'];
 
 test('every view renders a complete page without the error fallback', () => {
   for (const view of VIEWS) {
@@ -46,12 +46,28 @@ test('events: only upcoming events are sent; real date cells are read regardless
   assert.equal(data.past, undefined, 'past activities are hand-made posts in Google Sites');
 });
 
-test('events-home: next event, or an empty state once it has passed', () => {
+test('events-home: next event, or an empty state once it has passed, plus the two latest activities', () => {
   const later = payload(render('events-home', { fixtures, now: '2027-01-10T09:00:00+07:00' }));
-  assert.deepEqual(later, { next: null, upcomingCount: 0 });
+  assert.equal(later.next, null);
+  assert.equal(later.upcomingCount, 0);
+  assert.deepEqual(later.recent.map((e) => e.date), ['2026-12-05', '2026-11-20']);
   const now = payload(render('events-home', { fixtures }));
   assert.equal(now.next.title, 'Sample workshop: writing your first abstract');
   assert.equal(now.upcomingCount, 2);
+  assert.deepEqual(now.recent.map((e) => e.title), ['Sample First Meet', 'Sample statistics workshop']);
+});
+
+test('hero-actions and showcase-stats send only numbers', () => {
+  const hero = payload(render('hero-actions', { fixtures }));
+  assert.equal(hero.openProjects, 3);
+  assert.equal(hero.stats.presentations, 4);
+  const sc = payload(render('showcase-stats', { fixtures }));
+  assert.deepEqual(Object.keys(sc), ['stats']);
+});
+
+test('links to the standalone page use the club-domain address', () => {
+  const html = render('opportunities', { fixtures });
+  assert.match(html, /"self":"https:\/\/script\.google\.com\/a\/macros\/docchula\.com\/s\/TEST\/exec"/);
 });
 
 test('showcase: approved rows only, stats across conferences and countries', () => {

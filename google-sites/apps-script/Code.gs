@@ -4,13 +4,18 @@
  *
  *   opportunities   project finder                     (Opportunities page)
  *   open-now        three newest projects, dark panel  (Home, hero)
- *   stats           headline numbers, dark             (Home, hero)
- *   events-home     next event, or an empty state      (Home)
+ *   hero-actions    buttons + headline numbers, dark   (Home, hero)
+ *   stats           headline numbers only, dark        (spare)
+ *   events-home     next event + latest activities     (Home)
  *   events          all upcoming events                (Events page)
  *   showcase-home   numbers + three latest talks       (Home)
+ *   showcase-stats  showcase numbers, dark             (Showcase page, hero)
  *   showcase        filterable presentations           (Showcase page)
+ *
+ * Add &full=1 for a standalone page (the "Open full screen" link on phones).
  */
-var VIEWS = ['opportunities', 'open-now', 'stats', 'events-home', 'events', 'showcase-home', 'showcase'];
+var VIEWS = ['opportunities', 'open-now', 'hero-actions', 'stats', 'events-home', 'events', 'showcase-home',
+  'showcase-stats', 'showcase'];
 
 function doGet(e) {
   var params = (e && e.parameter) || {};
@@ -27,7 +32,7 @@ function doGet(e) {
   template.data = toScriptJson_(data);
   template.config = toScriptJson_({
     links: CONFIG.LINKS,
-    self: ScriptApp.getService().getUrl(),
+    self: appUrl_(),
     membersUrl: CONFIG.MEMBERS_APP_URL,
     memberDomain: CONFIG.MEMBER_DOMAIN,
     fullPage: params.full === '1'
@@ -63,17 +68,31 @@ function loadView_(view, params) {
       viewer: { member: member }
     };
   }
-  // Past activities live as hand-made posts (with photos) in Google Sites, so only upcoming events are sent.
+  // Full write-ups and photos of past activities live as hand-made posts in Google Sites;
+  // Home only shows the two latest as short "What's new" teasers.
   if (view === 'events') return { upcoming: events_().upcoming };
   if (view === 'events-home') {
-    var upcoming = events_().upcoming;
-    return { next: upcoming[0] || null, upcomingCount: upcoming.length };
+    var ev = events_();
+    return { next: ev.upcoming[0] || null, upcomingCount: ev.upcoming.length, recent: ev.past.slice(0, 2) };
   }
   var items = showcase_();
   var stats = Parse.showcaseStats(items);
   if (view === 'showcase') return { stats: stats, items: items };
-  if (view === 'showcase-home') return { stats: stats, items: items.slice(0, 3), conferences: conferenceNames_(items) };
-  return { openProjects: opportunities_().items.length, stats: stats }; // 'stats'
+  if (view === 'showcase-stats') return { stats: stats };
+  if (view === 'showcase-home') {
+    return { stats: stats, items: items.slice(0, 3), conferences: conferenceNames_(items) };
+  }
+  return { openProjects: opportunities_().items.length, stats: stats }; // 'stats' and 'hero-actions'
+}
+
+/**
+ * The web app's address in the club-domain form (/a/macros/docchula.com/…). The plain form sends
+ * people signed in to several Google accounts to the wrong one and Google shows an error instead.
+ */
+function appUrl_() {
+  var url = ScriptApp.getService().getUrl() || '';
+  var m = url.match(/\/macros\/(?:u\/\d+\/)?s\/([\w-]+)\/(?:exec|dev)/);
+  return m ? 'https://script.google.com/a/macros/' + CONFIG.MEMBER_DOMAIN + '/s/' + m[1] + '/exec' : url;
 }
 
 /**

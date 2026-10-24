@@ -121,6 +121,20 @@
     return LINKS.instagram ? extLink(LINKS.instagram, icon('ig') + 'Follow @researchclub.mdcu', 'btn ghost') : '';
   }
 
+  // ---------- sizing ----------
+  // Google Sites keeps an embed's width-to-height ratio on phones, so a section that is 1100px wide on a
+  // laptop becomes a short strip on a phone. Wide views switch to a compact teaser with a link to the
+  // standalone page; narrow ones scale down as a whole.
+  function narrow(px) { return !CONFIG.fullPage && window.innerWidth < px; }
+  function fullUrl(view) { return (CONFIG.self || '') + '?view=' + view + '&full=1'; }
+  function openFull(view, label) {
+    return '<a class="openfull" href="' + esc(fullUrl(view)) + '" target="_blank" rel="noopener">' + esc(label) + icon('out') + '</a>';
+  }
+  function fitTo(designWidth) {
+    var z = Math.min(1, window.innerWidth / designWidth);
+    document.documentElement.style.zoom = z < 1 ? String(z) : '';
+  }
+
   // ---------- Opportunities ----------
 
   var MEMBER_DOMAIN = CONFIG.memberDomain || 'docchula.com';
@@ -260,8 +274,17 @@
     var depts = unique(items.map(function (i) { return i.dept; })).sort(function (a, b) { return a.localeCompare(b, 'th'); });
     var member = !!(DATA.viewer && DATA.viewer.member);
 
+    if (narrow(640)) {
+      app.innerHTML = '<div class="compact-box"><p class="lbl">' + plural(items.length, 'project', 'projects') + ' open' +
+        (DATA.year ? ' · ' + esc(DATA.year.replace('-', '–')) : '') + '</p>' +
+        '<ul class="lines">' + items.slice(0, 3).map(function (o) {
+          return '<li><span class="d">' + (o.kind === 'open' ? 'Open lab' : 'Project') + '</span><span class="t"' + lang(o.title) + '>' + esc(o.title) + '</span></li>';
+        }).join('') + '</ul>' + openFull('opportunities', 'Open the project finder') + '</div>';
+      return;
+    }
+
     app.innerHTML = '<div class="pad">' +
-      (CONFIG.fullPage ? fullPageBar() : '') +
+      (CONFIG.fullPage ? fullPageBar() : '<h2 class="h2">Find a project</h2>') +
       (member ? memberNote() : signInBanner()) +
       '<div class="toolbar">' +
         '<div class="grow"><label class="label" for="q">Search</label><div class="search">' + icon('search') +
@@ -328,27 +351,61 @@
 
   function renderOpenNow() {
     var items = DATA.items || [];
+    var member = !!(DATA.viewer && DATA.viewer.member);
+    fitTo(440);
     app.innerHTML = '<aside class="panel" aria-labelledby="open-now">' +
       '<div class="head"><h2 class="label" id="open-now" style="margin:0">Open now</h2>' +
-        (DATA.year ? '<span class="meta">Academic year ' + esc(DATA.year.replace('-', '–')) + '</span>' : '') + '</div>' +
+        (DATA.year ? '<span class="meta">Academic year ' + esc(DATA.year.replace('-', '–').replace(/^(\d{4})–\d\d(\d\d)$/, '$1–$2')) + '</span>' : '') + '</div>' +
       (items.length
         ? '<ul>' + items.map(function (o) {
             return '<li><a href="' + esc(LINKS.opportunitiesPage) + '"><span class="t"' + lang(o.title) + '>' + esc(o.title) + '</span>' +
               '<span class="m"><span' + lang(o.dept) + '>' + esc(o.dept) + '</span>' +
               (o.seats ? '<span class="seats">' + esc(plural(Number(o.seats), 'seat', 'seats')) + '</span>' : '') +
-              (o.duration ? '<span style="font-family:var(--mono);font-size:12px">' + esc(o.duration) + '</span>' : '') +
               '</span></a></li>';
           }).join('') + '</ul>'
         : '<p style="margin:0 0 12px;color:var(--on-dark-2)">New projects for this year are on their way — check back soon.</p>') +
       '<a class="all" href="' + esc(LINKS.opportunitiesPage) + '">Browse all ' + plural(DATA.total || 0, 'project', 'projects') + icon('arrow') + '</a>' +
+      (member ? '' : '<p class="unlock">' + icon('lock') + 'Advisors and contacts unlock with your ' + esc(MEMBER_DOMAIN) + ' account</p>') +
       '</aside>';
   }
 
-  function renderStats() {
+  function heroNumbers() {
     var s = DATA.stats || {};
-    var cells = [[DATA.openProjects, 'Open projects'], [s.presentations, 'Conference presentations'], [s.countries, 'Countries']]
-      .filter(function (c) { return c[0]; });
-    app.innerHTML = '<div class="stats-dark">' + cells.map(function (c) {
+    return [[DATA.openProjects, 'Open projects', 'projects'], [s.presentations, 'Conference presentations', 'presentations'],
+      [s.countries, 'Countries', 'countries']].filter(function (c) { return c[0]; });
+  }
+
+  function renderStats() {
+    app.innerHTML = '<div class="stats-dark">' + heroNumbers().map(function (c) {
+      return '<div><p class="n">' + esc(c[0]) + '</p><p class="l">' + esc(c[1]) + '</p></div>';
+    }).join('') + '</div>';
+  }
+
+  /** "Find a research project" + "See what's on" + the three headline numbers, under the hero headline. */
+  function renderHeroActions() {
+    var cells = heroNumbers();
+    var compact = window.innerWidth < 480;
+    app.innerHTML = '<div class="hero-actions' + (compact ? ' compact' : '') + '">' +
+      '<div class="cta"><a class="btn primary big" href="' + esc(LINKS.opportunitiesPage) + '">Find a research project' + icon('arrow') + '</a>' +
+        (compact ? '' : '<a class="see" href="' + esc(LINKS.eventsPage) + '">See what\'s on</a>') + '</div>' +
+      (!cells.length ? '' : compact
+        ? '<p class="oneline">' + cells.map(function (c) { return '<b>' + esc(c[0]) + '</b> ' + esc(c[2]); }).join(' · ') + '</p>'
+        : '<div class="stats-dark">' + cells.map(function (c) {
+            return '<div><p class="n">' + esc(c[0]) + '</p><p class="l">' + esc(c[1]) + '</p></div>';
+          }).join('') + '</div>') +
+      '</div>';
+  }
+
+  function renderShowcaseStats() {
+    var s = DATA.stats || {};
+    var year = new Date().getFullYear();
+    var cells = [[s.presentations, 'Presentations'], [s.conferences, 'Conferences'], [s.countries, 'Countries'],
+      [s.since ? s.since + '–' + String(year).slice(2) : '', 'Academic years']].filter(function (c) { return c[0]; });
+    if (window.innerWidth < 480) {
+      app.innerHTML = '<p class="oneline">' + cells.map(function (c) { return '<b>' + esc(c[0]) + '</b> ' + esc(c[1].toLowerCase()); }).join(' · ') + '</p>';
+      return;
+    }
+    app.innerHTML = '<div class="stats-dark wide">' + cells.map(function (c) {
       return '<div><p class="n">' + esc(c[0]) + '</p><p class="l">' + esc(c[1]) + '</p></div>';
     }).join('') + '</div>';
   }
@@ -399,25 +456,84 @@
       '</div>' + poster(e, 'thumb') + '</li>';
   }
 
+  /** One-line event for the compact (phone) layouts. */
+  function eventLine(e) {
+    return '<li><span class="d">' + dayOf(e.date) + ' ' + monthOf(e.date).slice(0, 3) + '</span><span class="t"' + lang(e.title) + '>' + esc(e.title) + '</span></li>';
+  }
+
   function renderEvents() {
     var upcoming = DATA.upcoming || [];
+    if (narrow(640)) {
+      app.innerHTML = '<div class="compact-box">' +
+        (upcoming.length
+          ? '<ul class="lines">' + upcoming.slice(0, 3).map(eventLine).join('') + '</ul>' + openFull('events', 'Details, registration and calendar')
+          : '<p class="head">No upcoming events yet</p><p>New dates are posted on Instagram first.</p>' +
+            (LINKS.instagram ? extLink(LINKS.instagram, icon('ig') + 'Follow @researchclub.mdcu', 'openfull') : '')) +
+        '</div>';
+      return;
+    }
     app.innerHTML = '<div class="pad">' +
-      '<h2 class="label" style="margin:0 0 14px">Upcoming</h2>' +
+      (CONFIG.fullPage ? '<div class="topbar"><span class="label">MDCU Research Division · Upcoming events</span><a href="' + esc(LINKS.eventsPage || LINKS.site || '#') + '">Back to the website</a></div>' : '') +
       (upcoming.length
         ? nextCard(upcoming[0]) + (upcoming.length > 1
           ? '<ol style="list-style:none;margin:8px 0 0;padding:0">' + upcoming.slice(1).map(eventRow).join('') + '</ol>' : '')
-        : emptyBlock('No upcoming events yet', 'New dates are posted on Instagram first. This list updates on its own when the next event is added.', followButton())) +
+        : emptyBlock('No upcoming events yet', 'New dates are posted on Instagram first. This list updates on its own as soon as the team adds the next event.', followButton())) +
+      '</div>';
+  }
+
+  /** A past activity as a short "What's new" teaser; the full post (photos, text) is on the Events page. */
+  function newsRow(e) {
+    var thumb = e.poster
+      ? '<img class="pthumb" src="' + esc(e.poster) + '" alt="Poster: ' + esc(e.title) + '" loading="lazy">'
+      : '<span class="pthumb date" aria-hidden="true"><span>' + dayOf(e.date) + '</span><span>' + monthOf(e.date) + '</span></span>';
+    var text = e.description || '';
+    return '<article class="news">' + thumb +
+      '<div class="body"><p class="lbl">What\'s new · ' + esc(monthOf(e.date)) + '</p>' +
+      '<h4' + lang(e.title) + '>' + esc(e.title) + '</h4>' +
+      (text ? '<p class="ex"' + lang(text) + '>' + esc(text) + '</p>' : '') +
+      (LINKS.eventsPage ? '<a class="more" href="' + esc(LINKS.eventsPage) + '">Read more</a>' : '') +
+      '</div></article>';
+  }
+
+  function upcomingCard(e) {
+    return '<div class="upcard">' +
+      '<div class="when"><span class="day">' + dayOf(e.date) + '</span><span class="mon">' + monthOf(e.date) + '</span></div>' +
+      '<p class="lbl" style="color:var(--sky-ink)">' + esc(e.type) + ' · ' + esc(eventStatus(e)) + '</p>' +
+      '<h4' + lang(e.title) + '>' + esc(e.title) + '</h4>' +
+      '<p class="where"' + lang(e.venue) + '>' + esc([e.venue, e.time].filter(Boolean).join(' · ')) + '</p>' +
+      '<div class="acts">' + (e.register && e.status === 'open' ? extLink(e.register, 'Register' + icon('out'), 'btn primary') : '') +
+        extLink(calendarUrl(e), icon('cal') + 'Add to Google Calendar', 'cal') + '</div>' +
       '</div>';
   }
 
   function renderEventsHome() {
     var next = DATA.next;
-    app.innerHTML = '<div class="pad">' +
-      '<h2 class="label" style="margin:0 0 14px">Upcoming</h2>' +
-      (next ? nextCard(next) : emptyBlock('Nothing scheduled right now',
-        'New dates go up on Instagram first, and most events are first come, first served — follow to hear early.', followButton())) +
-      (DATA.upcomingCount > 1 && LINKS.eventsPage
-        ? '<p style="margin:14px 0 0"><a href="' + esc(LINKS.eventsPage) + '">See all ' + DATA.upcomingCount + ' upcoming events</a></p>' : '') +
+    var recent = DATA.recent || [];
+    if (narrow(640)) {
+      app.innerHTML = '<div class="compact-box">' +
+        '<ul class="lines">' +
+          (next ? eventLine(next) : '<li><span class="d">Next</span><span>Nothing scheduled yet — new dates go up on Instagram first.</span></li>') +
+          (recent[0] ? '<li><span class="d">Latest</span><span class="t"' + lang(recent[0].title) + '>' + esc(recent[0].title) + '</span></li>' : '') +
+        '</ul>' +
+        (LINKS.eventsPage ? '<a class="openfull" href="' + esc(LINKS.eventsPage) + '">All events' + icon('arrow') + '</a>' : '') +
+        '</div>';
+      return;
+    }
+    app.innerHTML = '<div class="ehome">' +
+      '<div style="min-width:0"><h3 class="lbl" style="margin:0 0 16px">Upcoming</h3>' +
+        (next
+          ? upcomingCard(next) + (DATA.upcomingCount > 1 && LINKS.eventsPage
+            ? '<p style="margin:14px 0 0"><a href="' + esc(LINKS.eventsPage) + '">See all ' + DATA.upcomingCount + ' upcoming events</a></p>' : '')
+          : '<div class="upcard">' +
+              '<span class="ibox">' + icon('cal') + '</span>' +
+              '<p class="head">Nothing scheduled right now</p>' +
+              '<p class="txt">New dates go up on Instagram first, and most events are first come, first served — follow to hear early.</p>' +
+              followButton() +
+            '</div>') +
+      '</div>' +
+      '<div style="min-width:0"><h3 class="lbl" style="margin:0 0 4px">What\'s new</h3>' +
+        (recent.length ? recent.map(newsRow).join('') : '<p style="color:var(--muted)">Photos and recaps from past activities are on the Events page.</p>') +
+      '</div>' +
       '</div>';
   }
 
@@ -441,8 +557,8 @@
       : ' type="button" data-id="' + esc(s.id) + '" aria-pressed="' + !!opts.selected + '"';
     return '<li><' + tag + ' class="card"' + attrs + '>' +
       '<span class="top"><span class="conf">' + esc(s.conf) + '</span><span class="meta" style="font-size:12px">' + esc(s.where) + '</span>' + formatTag(s.format) + '</span>' +
-      '<span class="title"' + lang(s.title) + ' style="font-size:17px">' + esc(s.title) + '</span>' +
-      (s.field ? '<span style="font-size:14px;color:var(--muted)">' + esc(s.field) + '</span>' : '') +
+      '<span class="title"' + lang(s.title) + '>' + esc(s.title) + '</span>' +
+      (s.field ? '<span style="font-size:14.5px;line-height:1.5;color:var(--muted)">' + esc(s.field) + '</span>' : '') +
       '<span class="by">' + presenterBadge(s) + '<span><span' + lang(s.presenter) + '>' + esc(s.presenter) + '</span>' +
         (s.cls ? '<span style="color:var(--muted)"> · ' + esc(s.cls) + '</span>' : '') + '</span></span>' +
       '</' + tag + '></li>';
@@ -485,7 +601,20 @@
     var years = unique(items.map(function (s) { return s.year; })).sort().reverse();
     var state = { q: '', year: 'all', format: 'all', sel: items.length ? items[0].id : null, all: false };
 
+    if (narrow(640)) {
+      app.innerHTML = '<div class="compact-box"><p class="lbl">' + plural(items.length, 'presentation', 'presentations') + '</p>' +
+        '<ul class="lines">' + items.slice(0, 3).map(function (s) {
+          return '<li><span class="d">' + esc(s.conf) + '</span><span class="t"' + lang(s.title) + '>' + esc(s.title) + '</span></li>';
+        }).join('') + '</ul>' + openFull('showcase', 'Browse and search all presentations') + '</div>';
+      return;
+    }
+
     app.innerHTML = '<div class="pad">' +
+      (CONFIG.fullPage
+        ? '<div class="topbar"><span style="display:flex;flex-direction:column;gap:2px"><span class="label">MDCU Research Division</span>' +
+          '<span style="font-size:22px;font-weight:700;line-height:1.2;color:var(--navy-800)">Research showcase</span></span>' +
+          '<a href="' + esc(LINKS.showcasePage || LINKS.site || '#') + '">Back to the website</a></div>'
+        : '<h2 class="h2">Browse presentations</h2>') +
       '<div class="toolbar">' +
         '<div class="grow"><label class="label" for="q">Search</label><div class="search">' + icon('search') +
           '<input id="q" class="field" type="search" autocomplete="off" placeholder="Title, field, conference or presenter"></div></div>' +
@@ -541,11 +670,20 @@
     var s = DATA.stats || {};
     var items = DATA.items || [];
     var nums = [[s.presentations, 'Presentations'], [s.conferences, 'Conferences'], [s.countries, 'Countries']];
-    app.innerHTML = '<div class="pad">' +
-      '<div class="nums">' + nums.map(function (n) { return '<div><p class="n">' + esc(n[0] || 0) + '</p><p class="l">' + n[1] + '</p></div>'; }).join('') + '</div>' +
-      '<ul class="sgrid" style="margin-top:32px">' + items.map(function (i) { return showcaseCard(i, { asLink: true }); }).join('') + '</ul>' +
+    var numsHtml = '<div class="nums">' + nums.map(function (n) { return '<div><p class="n">' + esc(n[0] || 0) + '</p><p class="l">' + n[1] + '</p></div>'; }).join('') + '</div>';
+    if (narrow(640)) {
+      app.innerHTML = '<div class="compact-box">' + numsHtml +
+        (items[0] ? '<p class="t" style="margin-top:10px"' + lang(items[0].title) + '>' + esc(items[0].conf) + ' · ' + esc(items[0].title) + '</p>' : '') +
+        '<a class="openfull" href="' + esc(LINKS.showcasePage) + '">Explore all ' + plural(s.presentations || 0, 'presentation', 'presentations') + icon('arrow') + '</a>' +
+        '</div>';
+      return;
+    }
+    app.innerHTML = '<div class="pad">' + numsHtml +
+      '<ul class="sgrid home">' + items.map(function (i) { return showcaseCard(i, { asLink: true }); }).join('') + '</ul>' +
       ((DATA.conferences || []).length ? '<div class="acronyms"><span class="label">Presented at</span>' +
         DATA.conferences.map(function (c) { return '<span>' + esc(c) + '</span>'; }).join('') + '</div>' : '') +
+      '<div class="actions"><a class="btn ghost big" href="' + esc(LINKS.showcasePage) + '">Explore all ' + plural(s.presentations || 0, 'presentation', 'presentations') + '</a>' +
+        (LINKS.showcaseForm ? extLink(LINKS.showcaseForm, 'Presented recently? Add your work', 'plain') : '') + '</div>' +
       '</div>';
   }
 
@@ -571,19 +709,36 @@
   var VIEWS = {
     'opportunities': renderOpportunities,
     'open-now': renderOpenNow,
+    'hero-actions': renderHeroActions,
     'stats': renderStats,
     'events': renderEvents,
     'events-home': renderEventsHome,
     'showcase': renderShowcase,
+    'showcase-stats': renderShowcaseStats,
     'showcase-home': renderShowcaseHome
   };
 
-  if (VIEW === 'open-now' || VIEW === 'stats') document.body.classList.add('dark');
+  // Each embed sits on a Google Sites section; its background has to match that section exactly.
+  var DARK = ['open-now', 'hero-actions', 'stats', 'showcase-stats'];
+  if (DARK.indexOf(VIEW) !== -1) document.body.classList.add('dark');
+  if (VIEW === 'events-home' && !CONFIG.fullPage) document.body.classList.add('ground');
   if (DATA.error || !VIEWS[VIEW]) {
     app.innerHTML = '<p class="error">This section couldn\'t load right now. Please refresh the page' +
       (LINKS.email ? ', or email <a href="mailto:' + esc(LINKS.email) + '">' + esc(LINKS.email) + '</a> if it keeps happening' : '') + '.</p>';
     return;
   }
   VIEWS[VIEW]();
+
+  // Sites resizes the frame when the page switches between laptop and phone widths.
+  var lastWidth = window.innerWidth;
+  var timer = null;
+  window.addEventListener('resize', function () {
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      if (Math.abs(window.innerWidth - lastWidth) < 8) return;
+      lastWidth = window.innerWidth;
+      VIEWS[VIEW]();
+    }, 150);
+  });
 })();
 </script>
