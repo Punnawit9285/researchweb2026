@@ -1,0 +1,1398 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MDCU Research Division</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans+Thai:wght@400;500;600;700&amp;display=swap">
+<!--
+  MDCU Research Division — the whole website in one embed.
+  Paste this entire file into Google Sites: a "Full page embed" page › Embed code.
+  Everything the team normally changes is in the two blocks marked "EDIT HERE" in the <script> at the bottom.
+  Step-by-step instructions: README.md in the same folder.
+-->
+<style>
+:root{
+  --ink:#0B1630;--ink-2:#10213F;--navy:#16305A;--text:#1B2537;--text-2:#3C4759;--muted:#556179;
+  --line:#DCE3EC;--line-2:#EEF2F6;--bg-2:#F4F7FA;--bg-3:#EEF2F6;--bg-4:#E6EDF4;--field:#B9C4D3;
+  --blue:#126BA1;--blue-dk:#0B4F7A;--cyan:#5BC6EA;--gold:#F4B13A;--gold-hi:#F7C25F;
+  --on-ink:#C9D3E3;--on-ink-2:#A9B7CF;
+  --tint-b:#E6F4FB;--tint-b-fg:#0D5A86;--tint-g:#FEF4E2;--tint-g-fg:#7A4A00;--tint-n:#EEF0F4;
+  --sans:'IBM Plex Sans Thai','Noto Sans Thai',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+}
+html{background:var(--ink);scroll-padding-top:88px}
+body{margin:0;background:var(--ink);font-family:var(--sans);color:var(--text);-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+#root{background:#FFFFFF}
+a{color:var(--blue);text-underline-offset:3px}
+a:hover{color:var(--blue-dk)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+button,input,select{font:inherit}
+img{max-width:100%}
+.wrap{max-width:1200px;margin:0 auto;padding-left:clamp(20px,4vw,32px);padding-right:clamp(20px,4vw,32px)}
+.ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.ico.sm{width:18px;height:18px}
+.ico.xs{width:16px;height:16px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.mono{font-family:var(--mono)}
+.kicker{margin:0;font-family:var(--mono);font-size:12.5px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;line-height:1.6;color:var(--muted)}
+.kicker.cyan{color:var(--cyan)}
+.kicker.navy{font-weight:600;color:var(--navy)}
+.h1{margin:16px 0 0;font-size:clamp(36px,3vw + 12px,56px);line-height:1.08;font-weight:700;letter-spacing:-.025em;color:var(--navy);text-wrap:balance}
+.h2{margin:14px 0 0;font-size:clamp(32px,2.2vw + 10px,46px);line-height:1.12;font-weight:700;letter-spacing:-.02em;color:var(--navy)}
+.h2.sm{font-size:clamp(28px,1.6vw + 12px,38px);line-height:1.15;margin-top:12px}
+.lead{margin:20px 0 0;font-size:18px;line-height:1.65;color:var(--text-2);text-wrap:pretty}
+.body{margin:0;font-size:17px;line-height:1.7;color:var(--text-2)}
+.statnum{margin:0;font-weight:700;line-height:1;letter-spacing:-.02em;color:var(--navy)}
+.statlbl{margin:10px 0 0;font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 24px;border:0;background:var(--gold);color:var(--ink);font-size:16px;font-weight:600;text-decoration:none;border-radius:2px;cursor:pointer}
+.btn-primary:hover{background:var(--gold-hi);color:var(--ink)}
+.btn-primary.md{min-height:48px;padding:0 20px;font-size:15.5px}
+.btn-ghost{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 20px;border:1.5px solid var(--navy);background:#FFFFFF;color:var(--navy);font-size:15px;font-weight:600;text-decoration:none;border-radius:2px;cursor:pointer}
+.btn-ghost:hover{background:var(--navy);color:#FFFFFF}
+.btn-ghost.lg{min-height:52px;padding:0 24px;font-size:16px}
+.link-arrow{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-weight:600;font-size:15px}
+.on-dark a{color:#FFFFFF}
+.ph{display:flex;align-items:flex-end;width:100%;padding:16px;background-color:var(--bg-3);background-image:repeating-linear-gradient(135deg,rgba(22,48,90,.06) 0 1px,transparent 1px 14px);border:1px solid var(--line)}
+.ph.alt{background-color:var(--bg-4)}
+.ph span{padding:6px 10px;background:#FFFFFF;font-family:var(--mono);font-size:12px;color:var(--text-2)}
+.photo{display:block;width:100%;object-fit:cover;border:1px solid var(--line);background:var(--bg-3)}
+.chip{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border:1px solid var(--field);background:#FFFFFF;color:var(--text);font-size:14.5px;font-weight:500;border-radius:2px;cursor:pointer}
+.chip:hover{border-color:var(--navy)}
+.chip[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#FFFFFF}
+.chip .n{font-family:var(--mono);font-size:12px;opacity:.8}
+.field{width:100%;height:48px;border:1px solid var(--field);border-radius:2px;font-size:15.5px;color:var(--text);background:#FFFFFF}
+.field:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--navy)}
+.flabel{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--navy)}
+.searchbox{position:relative;display:block}
+.searchbox .ico{position:absolute;left:14px;top:14px;color:var(--muted)}
+.searchbox input{padding:0 14px 0 44px}
+.tag{padding:2px 8px;font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase}
+.tag.b{background:var(--tint-b);color:var(--tint-b-fg)}
+.tag.g{background:var(--tint-g);color:var(--tint-g-fg)}
+.tag.n{background:var(--tint-n);color:var(--text-2)}
+.kw{padding:2px 8px;border:1px solid var(--line);font-size:12.5px;color:var(--text-2)}
+.kw.lg{padding:3px 10px;background:var(--bg-2);font-size:13px}
+.avatar{display:inline-flex;align-items:center;justify-content:center;flex:none;border-radius:50%;background:var(--navy);color:#FFFFFF;font-weight:600}
+.bar{display:inline-block;background:var(--text);border-radius:2px}
+.empty{display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:40px 28px;border:1px solid var(--line);background:var(--bg-2)}
+.empty p{margin:0}
+#app:focus{outline:none}
+[hidden]{display:none !important}
+
+/* header */
+.site-header{position:sticky;top:0;z-index:30;background:#FFFFFF;border-bottom:1px solid var(--line)}
+.hdr{display:flex;align-items:center;justify-content:space-between;gap:24px;height:72px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--navy)}
+.brand:hover{color:var(--navy)}
+.brand img{width:31px;height:36px;display:block}
+.brand span{font-size:17px;font-weight:600;letter-spacing:-.01em}
+.nav-links{display:flex;align-items:center;gap:28px}
+.navlink{color:var(--text);text-decoration:none;font-size:15px;font-weight:500;padding:10px 0;border-bottom:2px solid transparent}
+.navlink:hover{color:var(--navy);border-bottom-color:var(--line)}
+.navlink.on{color:var(--navy);border-bottom-color:var(--gold)}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:0;background:transparent;color:var(--navy);cursor:pointer}
+.icon-btn.boxed{border:1px solid var(--line);background:#FFFFFF}
+.menu-btn{display:none}
+.mobile-nav{display:none;flex-direction:column;border-top:1px solid var(--line);padding:8px clamp(20px,4vw,32px) 16px;background:#FFFFFF}
+.mobile-nav a,.mobile-nav button{display:flex;align-items:center;gap:10px;min-height:48px;color:var(--text);text-decoration:none;border:0;border-bottom:1px solid var(--line-2);background:none;padding:0;text-align:left;cursor:pointer;font-size:16px}
+.mobile-nav .on{color:var(--navy);font-weight:600}
+.mobile-nav button{border-bottom:0;color:var(--navy)}
+@media (max-width:880px){
+  .nav-links{display:none}
+  .menu-btn{display:inline-flex}
+  .mobile-nav.open{display:flex}
+}
+
+/* footer */
+.site-footer{background:var(--ink);color:var(--on-ink);border-top:1px solid rgba(255,255,255,.12)}
+.foot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:40px 32px;padding-top:56px;padding-bottom:40px}
+.foot-grid a{font-size:15px;text-decoration:none}
+.foot-grid a:hover{text-decoration:underline}
+.foot-h{margin:0 0 4px;font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--cyan)}
+.foot-logo{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;background:#FFFFFF}
+.foot-logo img{width:28px;height:32px;display:block}
+.foot-base{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-top:20px;padding-bottom:28px;border-top:1px solid rgba(255,255,255,.10);font-family:var(--mono);font-size:12px;color:var(--on-ink-2)}
+
+/* home */
+.hero{position:relative;overflow:hidden;background:var(--ink);color:#FFFFFF}
+.decor{position:absolute;right:-150px;top:-90px;width:860px;height:860px;pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:64px;align-items:start;position:relative;padding-top:96px;padding-bottom:104px}
+.hero h1{margin:24px 0 0;font-size:clamp(40px,4.4vw + 4px,68px);line-height:1.04;font-weight:700;letter-spacing:-.025em;color:#FFFFFF}
+.hero h1 span{display:block}
+.hero-stats{display:flex;flex-wrap:wrap;margin-top:56px;border-top:1px solid rgba(255,255,255,.14)}
+.hero-stats div{padding:20px 40px 0 0}
+.hero-stats div:last-child{padding-right:0}
+.hero-stats .v{margin:0;font-size:34px;font-weight:600;line-height:1.1;color:#FFFFFF}
+.hero-stats .l{margin:6px 0 0;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--on-ink-2)}
+.open-now{min-width:0;background:var(--ink-2);border:1px solid rgba(255,255,255,.12);padding:26px 28px 22px}
+.prow{display:block;width:100%;padding:18px 0;color:#FFFFFF;text-decoration:none}
+.prow:hover{color:#FFFFFF}
+.prow:hover .prow-title{text-decoration:underline;text-underline-offset:4px}
+.duo{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:64px;align-items:center}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.9fr);gap:56px;align-items:start}
+.post{display:grid;grid-template-columns:140px minmax(0,1fr);gap:24px}
+.post:hover .post-title{text-decoration:underline;text-underline-offset:4px}
+.prog{display:flex;flex-direction:column;gap:14px;border-top:2px solid var(--navy);padding-top:22px}
+.card{display:flex;flex-direction:column;gap:16px;width:100%;padding:28px;border:1px solid var(--line);background:#FFFFFF;color:var(--text);text-decoration:none;text-align:left;cursor:pointer}
+.card:hover{border-color:var(--navy);color:var(--text)}
+.card[aria-pressed="true"]{border-color:var(--navy);box-shadow:inset 0 0 0 1px var(--navy)}
+.card-foot{display:flex;align-items:center;gap:12px;margin-top:auto;padding-top:16px;border-top:1px solid var(--line-2);width:100%}
+.involve{display:flex;flex-direction:column;gap:12px;border-top:1px solid rgba(255,255,255,.22);padding-top:24px}
+.involve a{display:inline-flex;align-items:center;gap:8px;min-height:44px;color:var(--gold);font-weight:600;text-decoration:none}
+.involve a:hover{color:var(--gold-hi);text-decoration:underline}
+@media (max-width:960px){
+  .hero-grid{grid-template-columns:minmax(0,1fr);gap:48px}
+  .split{grid-template-columns:minmax(0,1fr);gap:40px}
+  .duo{grid-template-columns:minmax(0,1fr);gap:40px}
+  .decor{display:none}
+}
+@media (max-width:600px){.post{grid-template-columns:96px minmax(0,1fr);gap:16px}}
+
+/* opportunities */
+.steps{list-style:none;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:28px 40px}
+.steps li{display:grid;grid-template-columns:40px minmax(0,1fr);gap:4px 12px}
+.finder{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:40px;align-items:start;margin-top:8px}
+.orow{display:flex;flex-direction:column;gap:8px;width:100%;padding:20px 16px;border:0;outline-offset:-2px;background:#FFFFFF;text-align:left;color:var(--text);cursor:pointer;transition:background .12s ease}
+.orow:hover{background:var(--bg-2)}
+.orow:hover .orow-title{text-decoration:underline;text-underline-offset:4px}
+.orow[aria-pressed="true"]{background:var(--bg-2);box-shadow:inset 0 0 0 2px var(--navy)}
+.detail{position:sticky;top:96px;max-height:calc(100vh - 120px);overflow-y:auto;min-width:0;border:1px solid var(--line);background:#FFFFFF}
+.sheet-close{display:none}
+.dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(150px,100%),1fr));gap:18px 24px;margin:0}
+.dl > div{display:flex;flex-direction:column;gap:4px}
+.dt{font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.dd{margin:0;font-size:15.5px;color:var(--text)}
+.dblock{display:flex;flex-direction:column;gap:6px}
+.dblock h3{margin:0;font-size:15px;font-weight:600;color:var(--navy)}
+.dblock p{margin:0;font-size:15.5px;line-height:1.7;color:var(--text-2)}
+.lockbar{display:block;height:12px;background:var(--text);border-radius:2px}
+@media (max-width:960px){
+  .finder{grid-template-columns:minmax(0,1fr)}
+  .detail{display:none}
+  .detail.sheet{display:block;position:fixed;inset:0;z-index:60;max-height:none;overflow-y:auto;background:#FFFFFF;border:0}
+  .sheet-close{display:inline-flex}
+}
+
+/* events */
+.ev{display:grid;grid-template-columns:120px minmax(0,1fr);gap:28px;padding:32px;background:var(--ink);color:#FFFFFF}
+.ev + .ev{margin-top:16px}
+.next{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px 40px;align-items:center;padding:32px;background:var(--bg-2);border:1px solid var(--line)}
+.epost{display:grid;grid-template-columns:220px minmax(0,1fr);gap:36px;align-items:start;padding:36px 0;border-bottom:1px solid var(--line)}
+.epost.flash{animation:flash 1.6s ease}
+@keyframes flash{0%{background:var(--tint-g)}100%{background:transparent}}
+.ph.poster{aspect-ratio:3/4;padding:10px}
+.ph.poster span{padding:4px 8px;font-size:11.5px}
+.ph.missing{background-color:#FFFFFF;border:1px dashed var(--field)}
+.btn-disabled{display:inline-flex;align-items:center;min-height:52px;padding:0 22px;border:1.5px solid rgba(255,255,255,.3);color:var(--on-ink);font-size:16px;font-weight:600;border-radius:2px}
+@media (max-width:720px){
+  .ev{grid-template-columns:minmax(0,1fr);gap:12px}
+  .next{grid-template-columns:minmax(0,1fr)}
+  .epost{grid-template-columns:minmax(0,1fr);gap:18px}
+  .epost .ph,.epost .photo{max-width:240px}
+}
+
+/* showcase */
+.detail-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:40px}
+@media (max-width:900px){.detail-grid{grid-template-columns:minmax(0,1fr);gap:28px}}
+
+/* about */
+.split-2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start}
+@media (max-width:900px){.split-2{grid-template-columns:minmax(0,1fr);gap:40px}}
+.contact-row{display:flex;align-items:center;gap:16px;min-height:64px;padding:0 8px;color:var(--text);text-decoration:none}
+.contact-row:hover{background:var(--bg-2);color:var(--text)}
+.contact-row .ico{color:var(--blue)}
+.map{display:block;width:100%;aspect-ratio:4/3;border:1px solid var(--line);background:var(--bg-4)}
+
+/* site search */
+.search-overlay{position:fixed;inset:0;z-index:80;background:rgba(11,22,48,.55);display:flex;justify-content:center;align-items:flex-start;padding:72px 16px 16px}
+.search-panel{width:100%;max-width:720px;max-height:calc(100vh - 96px);overflow-y:auto;background:#FFFFFF;border:1px solid var(--line);box-shadow:0 24px 48px rgba(11,22,48,.25)}
+.search-top{position:sticky;top:0;display:flex;align-items:center;gap:12px;padding:12px 12px 12px 20px;background:#FFFFFF;border-bottom:1px solid var(--line)}
+.search-top input{flex:1;min-width:0;height:48px;border:0;font-size:17px;color:var(--text);background:transparent}
+.search-top input:focus{outline:none}
+.sgroup{padding:16px 20px 8px}
+.sgroup h3{margin:0 0 6px;font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.sres{display:flex;flex-direction:column;gap:2px;padding:12px 10px;margin:0 -10px;color:var(--text);text-decoration:none}
+.sres:hover,.sres:focus-visible{background:var(--bg-2);color:var(--text)}
+.sres b{font-size:15.5px;font-weight:600;color:var(--navy)}
+.sres span{font-size:13.5px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div id="root">
+
+<header class="site-header">
+  <div class="wrap hdr">
+    <a class="brand" href="#/home"><img src="data:image/png;base64,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" alt=""><span>MDCU Research Division</span></a>
+    <nav aria-label="Main" class="nav-links">
+      <a class="navlink" data-nav="home" href="#/home">Home</a>
+      <a class="navlink" data-nav="opportunities" href="#/opportunities">Opportunities</a>
+      <a class="navlink" data-nav="events" href="#/events">Events</a>
+      <a class="navlink" data-nav="showcase" href="#/showcase">Showcase</a>
+      <a class="navlink" data-nav="about" href="#/about">About</a>
+      <button type="button" class="icon-btn" data-action="search" aria-label="Search this site"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4.2-4.2"></path></svg></button>
+    </nav>
+    <button type="button" class="icon-btn boxed menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+  </div>
+  <nav aria-label="Mobile" class="mobile-nav" id="mobile-nav">
+    <a data-nav="home" href="#/home">Home</a>
+    <a data-nav="opportunities" href="#/opportunities">Opportunities</a>
+    <a data-nav="events" href="#/events">Events</a>
+    <a data-nav="showcase" href="#/showcase">Showcase</a>
+    <a data-nav="about" href="#/about">About</a>
+    <button type="button" data-action="search"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4.2-4.2"></path></svg>Search this site</button>
+  </nav>
+</header>
+
+<main id="app" tabindex="-1"></main>
+
+<footer class="site-footer on-dark">
+  <div class="wrap foot-grid">
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <span style="display:flex;align-items:center;gap:12px"><span class="foot-logo"><img src="data:image/png;base64,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" alt=""></span><span style="font-size:17px;font-weight:600;color:#FFFFFF">MDCU Research Division</span></span>
+      <p style="margin:0;font-size:14.5px;line-height:1.65;max-width:340px">A student-led research club of the Student Union, Faculty of Medicine, Chulalongkorn University.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px" id="foot-contact"></div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <p class="foot-h">Find us</p>
+      <p style="margin:0;font-size:15px;line-height:1.65">Students Academic Affairs, Faculty of Medicine, Chulalongkorn University<br>1873 Rama IV Rd, Pathumwan, Bangkok 10330</p>
+    </div>
+  </div>
+  <div class="wrap foot-base">
+    <span id="copyright">© MDCU Research Division</span>
+    <span>In partnership with SMCU — the Student Union of the Faculty of Medicine</span>
+  </div>
+</footer>
+</div>
+
+<div class="search-overlay" id="search" role="dialog" aria-modal="true" aria-label="Search this site" hidden>
+  <div class="search-panel">
+    <div class="search-top">
+      <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" style="color:#556179"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4.2-4.2"></path></svg>
+      <label for="site-q" class="sr">Search this site</label>
+      <input id="site-q" type="search" autocomplete="off" placeholder="Search projects, presentations and events">
+      <button type="button" class="icon-btn boxed" data-action="close-search" aria-label="Close search"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+    </div>
+    <div id="site-results" aria-live="polite"></div>
+  </div>
+</div>
+
+<script>
+'use strict';
+
+/* =====================================================================
+   EDIT HERE (1 of 2) — links and settings
+   Leave a value as '' if you don't have it yet; the site still works.
+   ===================================================================== */
+const CONFIG = {
+  email: 'researchclub@docchula.com',
+  instagramUrl: 'https://www.instagram.com/researchclub.mdcu/',
+  facebookGroupUrl: 'https://www.facebook.com/groups/1951489348271731',
+  facebookPageUrl: '',            // the "MDCU Research Club" Facebook page
+
+  academicYear: '2026–27',        // shown on Home and Opportunities
+
+  // Opportunities: topics are public. Advisors and contacts are for MDCU students.
+  // "Sign in with docchula.com" opens this link — use the Opportunities Google Sheet
+  // (or a Doc) shared with docchula.com only, so Google asks people to sign in.
+  membersUrl: '',
+  // Set to true ONLY if the whole Google Site is published to docchula.com accounts.
+  // Then every visitor already signed in, so project details show on the page itself.
+  showProjectDetails: false,
+
+  facultyFormUrl: '',             // Google Form faculty use to post a project
+  showcaseFormUrl: '',            // Google Form students use to add a presentation
+  archive: [                      // earlier Opportunities lists (Google Sheet links)
+    { label: '2025–26', url: '' },
+    { label: '2024–25', url: '' }
+  ],
+
+  // Photos: paste a public image link, e.g. https://lh3.googleusercontent.com/d/<Drive file id>
+  photos: {
+    homeGroup: '',                // Home › Who we are — Paper Reading workshop group shot
+    workshop: '',                 // Home › Our mission — workshop audience
+    peer: '',                     // Home › Our mission — peer-to-peer session
+    coreTeam: ''                  // About › Executive Board group photo
+  },
+
+  // Optional: run Events, Showcase and Opportunities from the "Website data" Google Sheet.
+  // In the sheet: File › Share › Publish to web › pick the tab › CSV › copy the link here.
+  // Leave '' to use the lists written in this file (EDIT HERE 2 of 2).
+  sheets: { events: '', showcase: '', opportunities: '' },
+
+  mapQuery: 'Faculty of Medicine, Chulalongkorn University, 1873 Rama IV Rd, Pathumwan, Bangkok 10330'
+};
+
+/* =====================================================================
+   EDIT HERE (2 of 2) — lists shown on the site
+   ===================================================================== */
+
+// Events. date = YYYY-MM-DD. Future dates show under "Upcoming" and move to
+// "Previous events" on their own the day after.
+// status: 'Registration open' | 'Full' | 'Closed'. photo: public image link (poster).
+// links: recordings or recaps, e.g. [{ label: 'Session 1 recording', url: 'https://…' }]
+const EVENTS = [
+  { date: '2026-07-06', time: '16:00–18:30', type: 'Research talk', title: 'MDCU Research Division First Meet 2026', venue: 'Smart Classroom, อาคาร อปร.', photo: '', photoLabel: 'Poster', postUrl: '', links: [],
+    description: 'วิจัยคืออะไร? ทำแล้วได้อะไร? อยากเริ่มทำวิจัยต้องเริ่มจากตรงไหน? ทุกคำถามมีคำตอบที่ MDCU Research Division First Meet 2026 กิจกรรมที่จะพาน้อง ๆ มารู้จักโลกของการทำวิจัย ผ่าน Interactive Session ที่ได้ลองลงมือทำจริง พร้อมกับ Exclusive Talk จากรุ่นพี่มากประสบการณ์ทั้ง 4 คน…' },
+  { date: '2026-01-16', time: '16:15–20:00', type: 'Workshop', title: 'How to Design High-Impact Research', venue: 'Room 1302, 13th floor, Bhumisiri Building', photo: '', photoLabel: 'Poster', postUrl: '', links: [],
+    description: 'เคยรู้สึกว่า อยากลองทำงานวิจัยแต่ไม่รู้ว่าจะเริ่มยังไงไหม? กิจกรรมนี้ช่วยคุณได้!! ในกิจกรรมนี้จะถูกแบ่งเป็น 2 ช่วง ช่วงที่ 1 จะมีการบรรยายพื้นฐานของงานวิจัยและแนวคิดที่สำคัญ ช่วงที่ 2 จะเป็น Workshop ที่จะพาทุกคนไปเรียนรู้กระบวนการคิดของวิธีการทำวิจัย…' },
+  { date: '2025-07-06', time: '09:00–12:00', type: 'Workshop', title: 'Statistics in Medical Research and Basic Software', venue: 'Online via Zoom', photo: '', photoLabel: 'Posters ×3', postUrl: '',
+    links: [{ label: 'Session 1 recording', url: '' }, { label: 'Session 2 recording', url: '' }],
+    description: 'Recorded video — Session 1: Statistical Fundamentals in Medical Research: From Principles to Practical Application. Session 2: Getting Hands-On with Stata: Statistical Software for Medical Students.' },
+  { date: '2025-03-19', time: '13:00–15:30', type: 'Lab tour', title: 'Lab tour 2', venue: 'Faculty of Medicine, Chulalongkorn University', photo: '', photoLabel: 'Photos to add', postUrl: '', links: [],
+    description: 'Lab tour ครั้งที่สองของปีการศึกษานี้มาแล้ว! กิจกรรมที่จะพาทุกคนได้ไปชมศูนย์การวิจัยของจุฬาถึง 2 แห่ง นั่นคือ Center of Excellence in Systems Biology และห้องปฏิบัติการวิจัยและพัฒนาตัวบ่งชี้มะเร็ง (Cancer biomarker research laboratory)' },
+  { date: '2025-03-11', time: '16:30–19:30', type: 'Workshop', title: 'AI in medical research', venue: 'Room 1302, 13th floor, Bhumisiri Building', photo: '', photoLabel: 'Poster', postUrl: '', links: [{ label: 'Watch the recap', url: '' }],
+    description: 'รู้สึกว่าการทำงานวิจัยมันยาก ใช้เวลามากไปรึป่าว AI ช่วยได้! กลับมาแล้วกับกิจกรรม Research Workshop ในหัวข้อ “Transforming Medical Research with AI” ที่ทุกคนจะได้มารู้จัก AI ที่เอามาช่วยทำวิจัยได้…' }
+  // Next event, for example:
+  // { date: '2026-12-05', time: '16:00–18:00', type: 'Workshop', title: '…', venue: '…', status: 'Registration open', seats: '40', registerUrl: 'https://forms.gle/…', description: '…' },
+];
+
+// Opportunities. kind: 'project' (defined project) or 'open' (open lab — no fixed project yet).
+// Open labs need no title: their keywords become the title. featured: true = shown on Home.
+const OPPORTUNITIES = [
+  { kind: 'project', title: 'การพัฒนาระบบช่วยคัดกรองโรคติดเชื้อไวรัส/ไวรัสดื้อยาในผู้ป่วยด้วยปัญญาประดิษฐ์', advisor: 'ดร. อติ บ.', dept: 'จุลชีววิทยา', contact: ['Phone', 'Department office', 'Email'], timeline: 'Mar 2026 – Feb 2027', keywords: ['ไวรัสวิทยา', 'ไวรัสดื้อยา', 'ปัญญาประดิษฐ์'], seats: '',
+    summary: 'พัฒนาแอปพลิเคชันหรือฐานข้อมูลอัจฉริยะ เพื่อเป็นผู้ช่วยแพทย์ในการประเมินและคัดกรองผู้ป่วยที่ติดเชื้อไวรัส และ/หรือภาวะไวรัสดื้อยา', role: 'ออกแบบและพัฒนาระบบโดยประยุกต์ใช้ปัญญาประดิษฐ์', skills: 'ไวรัสวิทยาคลินิก และปัญญาประดิษฐ์', requirements: [] },
+  { kind: 'project', featured: true, title: 'Antiviral Drug Discovery, Drug synergism', advisor: 'รศ. ดร. พญ. ศิวะพร บ.', dept: 'จุลชีววิทยา', contact: ['LINE'], timeline: 'Until Jan 2028', keywords: ['Antiviral drugs', 'Drug discovery', 'Dengue', 'Chikungunya'], seats: '1',
+    summary: 'ทดสอบยาต้านไวรัสและฤทธิ์ต้านไวรัสในผลิตภัณฑ์', role: 'ขึ้นกับระดับความสนใจของนิสิต', skills: 'Cell-based antiviral assays, basic molecular techniques',
+    requirements: ['Curriculum vitae', 'Letter of intent', 'Student status certificate (CR23)', 'Transcript (CR25)', 'Relevant certificates or awards'] },
+  { kind: 'project', featured: true, title: 'Association of menstruation during kidney transplant and urinary tract infection', advisor: 'อ. พญ. สุธีรา เ.', dept: 'สูติศาสตร์-นรีเวชวิทยา', contact: ['LINE', 'Phone', 'Email'], timeline: 'Apr 2026 – Apr 2027', keywords: ['Kidney transplant', 'Menstruation', 'UTI'], seats: '2',
+    summary: 'Retrospective cohort ศึกษาความสัมพันธ์ระหว่างการมีประจำเดือนช่วงผ่าตัดเปลี่ยนไตกับการติดเชื้อทางเดินปัสสาวะหลังผ่าตัด โดยเก็บข้อมูลจากเวชระเบียน', role: 'เก็บข้อมูลจากเวชระเบียน และหากสนใจ ร่วมวิเคราะห์ข้อมูลและเขียน manuscript', skills: 'การทำวิจัยแบบ retrospective cohort', requirements: [] },
+  { kind: 'project', title: 'Advanced molecular diagnosis of intestinal parasites and filarial parasites', advisor: 'ศ. ดร. พญ. สุรางค์ น.', dept: 'ปรสิตวิทยา', contact: ['Phone', 'Department office', 'Email'], timeline: 'Arrange with the advisor', keywords: ['Molecular diagnosis', 'Parasites', 'Filaria', 'Epidemiology'], seats: '',
+    summary: 'Specimen collection, DNA extraction, amplification with advanced technology (ddPCR, RPA), and analysis.', role: 'Literature review, designing and running experiments, collecting and analysing data, interpreting findings.', skills: 'How to do research properly — students can join any stage of the project.', requirements: [] },
+  { kind: 'project', title: 'ความร่วมมือไทย–อังกฤษ เพื่อขับเคลื่อนด้าน AI และสุขภาพดิจิทัลผ่านนวัตกรรมการศึกษา', advisor: 'ผศ. นัตวรรณ อ.', dept: 'โสต ศอ นาสิกวิทยา', contact: ['Email'], timeline: 'Dec 2025 – Sep 2027', keywords: ['Transnational education', 'AI', 'Digital health', 'Entrepreneurship'], seats: '',
+    summary: 'พัฒนาชุดการเรียนการสอนร่วมกัน ออกแบบกลไกการแลกเปลี่ยนบุคลากรและนักศึกษา และเสริมการแลกเปลี่ยนองค์ความรู้กับภาคอุตสาหกรรม', role: 'วิเคราะห์ข้อมูลจากกิจกรรมภายใต้โครงการ และร่วมกิจกรรมเพื่อเก็บข้อมูลกับผู้มีส่วนร่วม', skills: 'ทักษะการวิเคราะห์ผลข้อมูล', requirements: [] },
+  { kind: 'project', featured: true, title: 'SOUND Thailand: Scaling Outreach & User-Centred Network', advisor: 'ผศ. ดร. พญ. นัตวรรณ อ.', dept: 'โสต ศอ นาสิกวิทยา', contact: ['Email'], timeline: 'Jan 2026 – Jan 2028', keywords: ['สุขภาพดิจิทัล', 'คัดกรองการได้ยิน', 'ผู้สูงอายุ'], seats: '20',
+    summary: 'ประเทศไทยคาดว่าจะก้าวสู่สังคมสูงอายุขั้นสูง (super-aged society) ภายในปี พ.ศ. 2578 และการสูญเสียการได้ยินเป็นปัญหาสุขภาพสำคัญที่ยังไม่ได้รับความสนใจเท่าที่ควร', role: 'วิเคราะห์ข้อมูลจากกิจกรรมในโครงการ และเข้าร่วมกิจกรรม (หากสนใจ)', skills: 'การดำเนินโครงการวิจัยจากแหล่งทุน และการวิเคราะห์ข้อมูล', requirements: [] },
+  { kind: 'open', advisor: 'อ. ไตรรักษ์ พ.', dept: 'ฝ่ายยุทธศาสตร์องค์กร', contact: ['LINE', 'Email'], keywords: ['Neoantigens', 'Cancer vaccines', 'Immunopeptidome'] },
+  { kind: 'open', advisor: 'ผศ. อมรพันธุ์ เ.', dept: 'กายวิภาคศาสตร์', contact: ['Department phone', 'Department office'], keywords: ['Nano–cell interaction', 'Nanotoxicity', 'Epigenetics'] },
+  { kind: 'open', advisor: 'ศ. นพ. ยง ภ.', dept: 'กุมารเวชศาสตร์', contact: ['Email'], keywords: ['Virology'] },
+  { kind: 'open', advisor: 'ศ. ดร. นพ. สิทธิพร แ.', dept: 'กายวิภาคศาสตร์', contact: ['Email'], keywords: ['Anatomical variations'] },
+  { kind: 'open', advisor: 'นักวิทยาศาสตร์ หน่วยปฏิบัติการวิจัยความผิดปกติของรก', dept: 'สูติศาสตร์-นรีเวชวิทยา', contact: ['Email'], keywords: ['Preeclampsia', 'DNA', 'RNA', 'microRNAs'] },
+  { kind: 'open', advisor: 'อ. ดร. นพ. ธันยวีร์ ช.', dept: 'จุลชีววิทยา', contact: ['Facebook', 'Department office', 'Email'], keywords: ['CAR-T cells', 'Translational research', 'Cancer immunotherapy'] },
+  { kind: 'open', advisor: 'รศ. มนินธ์ อ.', dept: 'ศัลยศาสตร์', contact: ['Email'], keywords: ['Urinary stones', 'Endourology', 'BPH'] },
+  { kind: 'open', advisor: 'พญ. รับพร ส.', dept: 'กุมารเวชศาสตร์', contact: ['Email'], keywords: ['Pediatric neuroinflammatory diseases'] },
+  { kind: 'open', advisor: 'อ. อาคม ไ.', dept: 'จุลชีววิทยา', contact: ['Email'], keywords: ['Bioinformatics', 'HPV-related research'] },
+  { kind: 'open', advisor: 'อ. พญ. นวสิริ ส.', dept: 'เวชศาสตร์ครอบครัว', contact: ['LINE', 'Email'], keywords: ['Family medicine', 'Geriatric care', 'Medical education', 'Holistic care'] }
+];
+
+// Conferences used by the showcase: short name › [location, month, full name]
+const CONFERENCES = {
+  'VSS 2026': ['Florida, USA', 'May 2026', 'Vision Sciences Society Annual Meeting 2026'],
+  'ACC 2026': ['New Orleans, USA', 'Mar 2026', 'American College of Cardiology 75th Annual Scientific Session & Expo'],
+  'JSID 2025': ['Yamanashi, Japan', 'Dec 2025', '50th Annual Meeting of the Japanese Society for Investigative Dermatology'],
+  'JSME 2025': ['Japan', 'Jul 2025', '57th Annual Meeting of the Japan Society for Medical Education'],
+  'AACA 2025': ['Washington, USA', '2025', 'American Association of Clinical Anatomists Annual Meeting 2025'],
+  'ACC 2025': ['Chicago, USA', 'Mar 2025', 'American College of Cardiology 74th Annual Scientific Session'],
+  'ARVO 2025': ['Salt Lake City, USA', 'May 2025', 'Association for Research in Vision and Ophthalmology Annual Meeting 2025'],
+  'APSC 2025': ['Busan, Korea', 'Apr 2025', 'Asian Pacific Society of Cardiology Congress 2025'],
+  'EORS 2025': ['Davos, Switzerland', '2025', '33rd Annual Meeting of the European Orthopaedic Research Society'],
+  'APDW 2024': ['Bali, Indonesia', 'Nov 2024', 'Asian Pacific Digestive Week 2024'],
+  'ARC 2024': ['Seoul, Korea', 'Dec 2024', '4th Asia Retina Congress with the Korean Retina Society Annual Meeting'],
+  'IMRC 2024': ['Bangkok, Thailand', 'Dec 2024', 'International Medical Student Research Conference 2024'],
+  'NUTRITION 2024': ['Chicago, USA', 'Jul 2024', 'NUTRITION 2024'],
+  'iGEM 2024': ['Paris, France', '2024', 'iGEM 2024 Grand Jamboree'],
+  'VSS 2024': ['Florida, USA', 'May 2024', 'Vision Sciences Society Annual Meeting 2024'],
+  'MRPC 2024': ['Chiang Mai, Thailand', 'Feb 2025', 'Medical Research Proposal Conference 2024'],
+  'APMEC 2024': ['Colombo, Sri Lanka', 'Jan 2024', 'Asia-Pacific Medical Education Conference'],
+  'EAACI 2024': ['Valencia, Spain', '2024', 'European Academy of Allergy and Clinical Immunology Congress 2024'],
+  'APACRS 2024': ['Chengdu, China', 'Jun 2024', '36th APACRS Annual Meeting with the 24th CSCRS'],
+  'ACC 2024': ['Atlanta, USA', 'Apr 2024', 'American College of Cardiology 73rd Annual Scientific Session'],
+  'DEMEC 2023': ['Manchester, UK', 'Dec 2023', '5th Developing Excellence in Medical Education Conference'],
+  'IMRC 2023': ['Bangkok, Thailand', 'Dec 2023', 'International Medical Student Research Conference 2023'],
+  'AMEE 2023': ['Glasgow, UK', 'Aug 2023', 'AMEE 2023 — International Association for Health Professions Education'],
+  'AMSC 2023': ['Taipei, Taiwan', '2023', "Asian Medical Students' Conference 2023"]
+};
+
+// Showcase. format: 'Oral' | 'Poster' | 'Competition'. featured: true = shown on Home.
+const PRESENTATIONS = [
+  { conf: 'VSS 2026', year: '2026', format: 'Poster', featured: true, title: 'Incidentally learned and explicitly cued distractor ignoring during visual search in older and younger adults', field: 'Basic science · Translational research', presenter: 'ปัญญวิชญ์ ป.', cls: 'MDCU78',
+    abstract: 'Previous research has provided mixed evidence as to how well older adults successfully ignore…', abstractUrl: '', advisors: 'รศ. ดร. นพ. ชัยภัทร ช. · Assoc. Prof. Dr. Viola S.', keywords: ['Visual attention', 'Visual search', 'Aging', 'Cognitive neuroscience'] },
+  { conf: 'ACC 2026', year: '2026', format: 'Poster', featured: true, title: 'การบริหารยาหลักและระยะเวลาที่ใช้ในการเข้าถึงขนาดเหมาะสม และปัจจัยที่เกี่ยวข้องในผู้ป่วยภาวะหัวใจล้มเหลวเรื้อรัง', field: 'Clinical science · Cardiology', presenter: 'มณฑกาญจน์ เ.', cls: 'MDCU77' },
+  { conf: 'JSID 2025', year: '2025', format: 'Poster', title: 'Inhibition of Cutibacterium acnes lipase by Orlistat as an alternative treatment to combat acne vulgaris…', field: 'Clinical science', presenter: 'พลอยกวิญญ์ ช.', cls: 'MDCU76' },
+  { conf: 'JSME 2025', year: '2025', format: 'Oral', featured: true, title: 'Evaluation of Student Engagement and Peer Support Teams at Chulalongkorn Medical School', field: 'Medical education', presenter: 'ณภัทษร ส.', cls: 'MDCU80' },
+  { conf: 'AACA 2025', year: '2025', format: 'Poster', title: 'Variations in the Atrioventricular Nodal Branch and Clinical Implications: A Cadaveric Study', field: '', presenter: 'สาธิตา ส.', cls: 'MDCU80' },
+  { conf: 'ACC 2025', year: '2025', format: 'Poster', title: 'Disparities while listing for orthotopic heart transplantation: A systematic review and meta-analysis', field: 'Cardiology · Transplantation', presenter: 'อัครวิทย์ ธ.', cls: 'MDCU75' },
+  { conf: 'ARVO 2025', year: '2025', format: 'Poster', title: 'Metagenomic deep sequencing identifies gene mutations associated with chemotherapeutic resistance in vitreoretinal…', field: 'Ophthalmology · Oncology', presenter: 'ธนนภ โ.', cls: 'MDCU75' },
+  { conf: 'APSC 2025', year: '2025', format: 'Oral', title: 'Unmasking Myocardial Infarction with Atypical Presentation: Role of Cardiovascular Magnetic Resonance…', field: 'Cardiology · Radiology', presenter: 'มณฑกาญจน์ เ.', cls: 'MDCU77' },
+  { conf: 'EORS 2025', year: '2025', format: 'Oral', title: 'The Role of Platelet-Rich Plasma (PRP) in Posterolateral Lumbar Fusion: A Meta-Analysis of Fusion Success…', field: '', presenter: 'ชวกฤษ พ.', cls: 'MDCU76' },
+  { conf: 'APDW 2024', year: '2024', format: 'Poster', title: 'Clinical outcomes and predictive factors of transarterial chemoembolization for patients with a single large hepatocellular carcinoma', field: 'Hepatology · Interventional radiology', presenter: 'ฉันท์ชนก ส.', cls: 'MDCU75' },
+  { conf: 'APDW 2024', year: '2024', format: 'Oral', title: 'Impact of Roux-en-Y Gastric Bypass on Esophageal Motility in Morbidly Obese Patients', field: 'Gastroenterology · Bariatric surgery', presenter: 'วีริยา ธ.', cls: '' },
+  { conf: 'ARC 2024', year: '2024', format: 'Poster', title: '[Title missing on the current site]', field: 'Ophthalmology · Experimental models', presenter: '[Presenter]', cls: 'MDCU78' },
+  { conf: 'IMRC 2024', year: '2024', format: 'Oral', title: 'Suicidal attempts and self-poisoning: one-year report from a quaternary hospital in the Thai metropolitan area', field: 'Emergency medicine · Psychiatry', presenter: 'ปัณณวัชร์ ศ.', cls: 'MDCU76' },
+  { conf: 'NUTRITION 2024', year: '2024', format: 'Poster', title: 'Strain-Specific Therapeutic Potential of Lactiplantibacillus plantarum: A Systematic Review', field: 'Nutrition · Microbiology', presenter: 'อรณัส ฉ.', cls: 'MDCU77' },
+  { conf: 'iGEM 2024', year: '2024', format: 'Competition', title: 'ASPINE: AI for Sequences-based Predictions and Identification of Neoantigen Expression', field: '', presenter: 'ณัฐชนน ร.', cls: 'MDCU77' },
+  { conf: 'VSS 2024', year: '2024', format: 'Poster', title: "Proactive enhancement of 'to-be-attended' and 'to-be-ignored' features during cued visual search in older and younger adults", field: 'Neuroscience · Visual perception', presenter: 'ปุญญวิชญ์ ป.', cls: 'MDCU78' },
+  { conf: 'VSS 2024', year: '2024', format: 'Oral', title: 'Chunking as an object: What comes together, goes together', field: 'Neuroscience · Visual perception', presenter: 'ฉัตริน พ.', cls: 'MDCU78' },
+  { conf: 'MRPC 2024', year: '2024', format: 'Oral', title: 'Inflammatory biomarker profile of knee osteoarthritis patients receiving intra-articular platelet-rich plasma injection', field: 'Orthopedics · Immunology', presenter: 'นิชานันท์ เ.', cls: 'MDCU76' },
+  { conf: 'MRPC 2024', year: '2024', format: 'Oral', title: 'Potential novel biomarkers for polycystic ovary syndrome screening among early adolescents…', field: 'Endocrinology · Gynecology', presenter: 'ฟ้าใส เ.', cls: 'MDCU76' },
+  { conf: 'MRPC 2024', year: '2024', format: 'Oral', title: 'Mesenchymal stem cell-based therapies for spinal fusion: A focus on lateral lumbar interbody fusion', field: 'Orthopedics · Regenerative medicine', presenter: '[Presenter]', cls: 'MDCU76' },
+  { conf: 'APMEC 2024', year: '2024', format: 'Oral', title: 'Student Engagement Workshop: A Student-led Initiative to Ignite Passion and Drive in Medical Education', field: 'Medical education', presenter: 'ทัพพ์ไท เ.', cls: 'MDCU77' },
+  { conf: 'EAACI 2024', year: '2024', format: 'Poster', title: 'Allergy sensitization in Pediatrics', field: '', presenter: 'พัชรพงศ์ เ.', cls: 'MDCU74' },
+  { conf: 'APACRS 2024', year: '2024', format: 'Poster', title: 'Evaluation of the anterior chamber depth and related parameters in patients undergoing cataract surgery in Thailand', field: 'Ophthalmology', presenter: 'ธนนภ โ.', cls: 'MDCU75' },
+  { conf: 'ACC 2024', year: '2024', format: 'Poster', title: 'Prevalence and prognostic value of abnormal liver function tests in patients hospitalized with acute heart failure', field: 'Cardiology · Hepatology', presenter: 'พรสินี ไ.', cls: 'MDCU74' },
+  { conf: 'ACC 2024', year: '2024', format: 'Poster', title: 'Eosinophilic Myocarditis after SARS-CoV-2 Vaccination in a Post-Cardiac Transplantation Patient', field: 'Cardiology · Immunology', presenter: 'พรสินี ไ.', cls: 'MDCU74' },
+  { conf: 'DEMEC 2023', year: '2023', format: 'Poster', title: "Online learners may be facing more challenges in exam preparation: analysis of students' preparedness vs scores…", field: 'Medical education', presenter: 'พัชรพล แ.', cls: 'MDCU75' },
+  { conf: 'IMRC 2023', year: '2023', format: 'Poster', title: 'Examining the 30-minute rule and the relationship between volume and surface temperature of red blood cell units', field: 'Transfusion medicine · Hematology', presenter: 'ธนงค์ ส.', cls: '' },
+  { conf: 'IMRC 2023', year: '2023', format: 'Poster', title: 'Preoperative anemia and blood transfusion in total knee arthroplasty and unicompartmental knee arthroplasty', field: 'Orthopedic surgery · Transfusion medicine', presenter: 'ธนภัทร ธ.', cls: '' },
+  { conf: 'AMEE 2023', year: '2023', format: 'Poster', title: "Curriculum Features from Global Trends to Institutional Implementation: Students' Perspective", field: 'Medical education', presenter: 'ธนนภ โ.', cls: 'MDCU75' },
+  { conf: 'AMEE 2023', year: '2023', format: 'Oral', title: "What students learned from engaging in curriculum design: students' reflection", field: 'Medical education', presenter: 'ณัฐชา ศ.', cls: 'MDCU74' },
+  { conf: 'AMSC 2023', year: '2023', format: 'Poster', title: 'Factors Affecting Living Will Interest among Older People: A Cross-Sectional Study at a Tertiary Care Hospital', field: '', presenter: 'ภคพล โ.', cls: 'MDCU77' }
+];
+
+// Showcase › Earlier highlights (alumni hall of fame)
+const EARLIER_HIGHLIGHTS = [
+  ['2022', 'Neuroscience 2022'],
+  ['2018', 'Asian Pacific Digestive Week (APDW)'],
+  ['2018', 'Heart Failure Seoul — Korean Society of Heart Failure'],
+  ['2018', 'European Academy of Paediatric Societies (EAPS)']
+];
+
+// About › Executive Board
+const BOARD_YEAR = '2026';
+const BOARD = [
+  { group: 'Leadership', people: [['Tonkhow', 'President'], ['Ozone', 'Secretary']] },
+  { group: 'Vice presidents', people: [['Wipu', 'Vice President, Capacity Building'], ['Milky', 'Vice President, Organization Development'], ['Neutron', 'Vice President, Activity'], ['Moya', 'Vice President, Communication']] },
+  { group: 'Heads of teams', people: [['Yujin', 'Head of Research Workshop'], ['Peem', 'Head of Lab Tour'], ['Peach', 'Head of Research Talk'], ['Pan', 'Vice Head of Research Talk'], ['Na', 'Head of Data Coordination'], ['Book', 'Head of PR & Content']] }
+];
+
+/* =====================================================================
+   Below this line is the site itself — no need to edit.
+   ===================================================================== */
+
+const $ =(sel, el) => (el || document).querySelector(sel);
+const $$ = (sel, el) => Array.from((el || document).querySelectorAll(sel));
+const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const lg = (s) => (/[฀-๿]/.test(String(s || '')) ? 'th' : 'en');
+const plural = (n, one, many) => n + ' ' + (n === 1 ? one : many);
+
+const ICONS = {
+  arrow: '<path d="M5 12h14M13 6l6 6-6 6"></path>',
+  ext: '<path d="M7 17L17 7M9 7h8v8"></path>',
+  search: '<circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4.2-4.2"></path>',
+  close: '<path d="M6 6l12 12M18 6L6 18"></path>',
+  lock: '<rect x="4.5" y="10.5" width="15" height="10" rx="1.5"></rect><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"></path>',
+  cal: '<rect x="3.5" y="5" width="17" height="15.5" rx="1"></rect><path d="M3.5 10h17M8 3v4M16 3v4"></path>',
+  calAdd: '<rect x="3.5" y="5" width="17" height="15.5" rx="1"></rect><path d="M3.5 10h17M8 3v4M16 3v4M12 13v4M10 15h4"></path>',
+  ig: '<rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><path d="M17.2 6.8h.01"></path>',
+  mail: '<rect x="3" y="5" width="18" height="14" rx="1"></rect><path d="M3.5 6l8.5 7 8.5-7"></path>',
+  fb: '<path d="M14 8.5h2.5V5H14a3.5 3.5 0 0 0-3.5 3.5V11H8v3.5h2.5V21H14v-6.5h2.5L17 11h-3V9a.5.5 0 0 1 .5-.5z"></path>',
+  group: '<circle cx="9" cy="8.5" r="3.2"></circle><path d="M3.5 19.5c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5M15.5 5.6a3 3 0 0 1 0 5.8M17.5 14.7c1.6.6 2.7 2.2 3 4.8"></path>',
+  pin: '<path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"></path><circle cx="12" cy="10" r="2.3"></circle>',
+  info: '<circle cx="12" cy="12" r="9"></circle><path d="M12 11v5M12 8h.01"></path>',
+  check: '<path d="M5 12.5l4.2 4.2L19 7"></path>',
+  play: '<circle cx="12" cy="12" r="9"></circle><path d="M10.2 8.8l5 3.2-5 3.2z"></path>',
+  plus: '<path d="M12 5v14M5 12h14"></path>'
+};
+const icon = (name, cls, style) => '<svg class="ico' + (cls ? ' ' + cls : '') + '" viewBox="0 0 24 24" aria-hidden="true"' + (style ? ' style="' + style + '"' : '') + '>' + ICONS[name] + '</svg>';
+
+// Links that leave the site open in a new tab (Google Sites runs this page in a frame).
+const isExternal = (url) => /^(https?:|mailto:|tel:)/i.test(url);
+const href = (url) => 'href="' + esc(url) + '"' + (isExternal(url) ? ' target="_blank" rel="noopener"' : '');
+const mailto = (subject) => 'mailto:' + CONFIG.email + (subject ? '?subject=' + encodeURIComponent(subject) : '');
+const facebookPage = () => CONFIG.facebookPageUrl || 'https://www.facebook.com/search/top?q=' + encodeURIComponent('MDCU Research Club');
+const formOr = (url, subject) => url || mailto(subject);
+
+function photoSlot(url, label, ratio, cls) {
+  if (url) return '<img class="photo" src="' + esc(url) + '" alt="' + esc(label) + '" loading="lazy" style="aspect-ratio:' + ratio + '">';
+  return '<div class="ph' + (cls ? ' ' + cls : '') + '" role="img" aria-label="Placeholder: ' + esc(label) + '" style="aspect-ratio:' + ratio + '"><span>Photo — ' + esc(label) + '</span></div>';
+}
+
+/* ---------- data shaping ---------- */
+
+const TODAY = (() => { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); })();
+const MONTHS = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+const MONTHS_LONG = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+let STORE = null;
+
+function normalizeDate(s) {
+  s = String(s || '').trim();
+  let m = s.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/);
+  let y, mo, d;
+  if (m) { y = +m[1]; mo = +m[2]; d = +m[3]; } else {
+    m = s.match(/^(\d{1,2})[\/.](\d{1,2})[\/.](\d{4})/);
+    if (!m) return '';
+    d = +m[1]; mo = +m[2]; y = +m[3];
+  }
+  if (y > 2400) y -= 543; // Buddhist year
+  if (mo < 1 || mo > 12 || d < 1 || d > 31) return '';
+  return y + '-' + String(mo).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+}
+
+function buildStore(raw) {
+  const events = raw.events.map((e, i) => Object.assign({ time: '', type: '', venue: '', description: '', status: '', seats: '', registerUrl: '', photo: '', photoLabel: 'Poster', postUrl: '', links: [] }, e, { id: 'e' + (i + 1), date: normalizeDate(e.date) }))
+    .filter((e) => e.date && e.title);
+  const upcoming = events.filter((e) => e.date >= TODAY).sort((a, b) => a.date.localeCompare(b.date));
+  const past = events.filter((e) => e.date < TODAY).sort((a, b) => b.date.localeCompare(a.date));
+
+  const opps = raw.opportunities.filter((o) => (o.title || (o.keywords && o.keywords.length)) && !/^closed$/i.test(o.status || ''))
+    .map((o, i) => {
+      const open = o.kind === 'open';
+      const r = Object.assign({ advisor: '', dept: '', contact: [], timeline: '', keywords: [], seats: '', summary: '', role: '', skills: '', requirements: [] }, o);
+      r.id = 'p' + (i + 1);
+      r.isOpenLab = open;
+      r.title = open ? (r.keywords.join(' · ') || r.title) : r.title;
+      r.timeline = open ? 'Flexible — discuss with the advisor' : r.timeline;
+      r.seats = String(r.seats || '').replace(/\D+/g, '');
+      return r;
+    });
+  const depts = [];
+  opps.forEach((o) => { if (o.dept && depts.indexOf(o.dept) === -1) depts.push(o.dept); });
+
+  const pres = raw.presentations.filter((p) => p.title && p.conf).map((p, i) => {
+    const c = raw.conferences[p.conf] || [];
+    const year = String(p.year || (p.conf.match(/(\d{4})\s*$/) || [])[1] || '').trim();
+    return Object.assign({ field: '', presenter: '', cls: '', abstract: '', abstractUrl: '', advisors: '', keywords: [] }, p, {
+      id: 's' + (i + 1), year: year, where: p.location || c[0] || '', when: p.month || c[1] || year, confFull: p.confFull || c[2] || p.conf
+    });
+  });
+  const countryOf = (where) => { const parts = String(where || '').split(','); return parts[parts.length - 1].trim(); };
+  const countries = new Set(pres.map((p) => countryOf(p.where)).filter(Boolean));
+  const confs = new Set(pres.map((p) => p.conf));
+  const years = Array.from(new Set(pres.map((p) => p.year).filter(Boolean))).sort().reverse();
+  const acronyms = [];
+  pres.forEach((p) => { const a = p.conf.replace(/\s*\d{4}$/, ''); if (acronyms.indexOf(a) === -1) acronyms.push(a); });
+
+  return { events, upcoming, past, opps, depts, pres, countries: countries.size, conferences: confs.size, years, acronyms };
+}
+
+function featured(list, n) {
+  const f = list.filter((x) => x.featured);
+  return (f.length ? f : list).slice(0, n);
+}
+
+/* ---------- small shared pieces ---------- */
+
+const seatsShort = (o) => (o.seats ? plural(+o.seats, 'seat', 'seats') : (o.isOpenLab ? 'Flexible' : ''));
+const fmtTag = (f) => (f === 'Oral' ? 'g' : f === 'Competition' ? 'n' : 'b');
+function initialOf(name) {
+  const bare = String(name || '').replace(/^(ศ\.|รศ\.|ผศ\.|อ\.|ดร\.|นพ\.|พญ\.|\s)+/, '');
+  if (!bare || bare.charAt(0) === '[') return '·';
+  return 'เแโใไ'.indexOf(bare.charAt(0)) !== -1 ? bare.charAt(1) : bare.charAt(0);
+}
+function longDate(iso) { const [y, m, d] = iso.split('-'); return +d + ' ' + MONTHS[+m - 1] + ' ' + y; }
+function monthYear(iso) { const [y, m] = iso.split('-'); return MONTHS_LONG[+m - 1] + ' ' + y; }
+
+function presCard(s, opts) {
+  opts = opts || {};
+  const tagEl = opts.button ? 'button type="button" data-pick="' + s.id + '" aria-pressed="' + (opts.on ? 'true' : 'false') + '"' : 'a ' + href('#/showcase/' + s.id);
+  const close = opts.button ? 'button' : 'a';
+  return '<' + tagEl + ' class="card"' + (opts.button ? ' style="padding:24px;gap:14px"' : '') + '>' +
+    '<span style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;width:100%">' +
+      '<span class="mono" style="font-size:13px;font-weight:600;color:var(--navy)">' + esc(s.conf) + '</span>' +
+      '<span class="mono" style="font-size:12px;color:var(--muted)">' + esc(s.where) + '</span>' +
+      '<span class="tag ' + fmtTag(s.format) + '" style="margin-left:auto;padding:3px 8px;letter-spacing:.06em">' + esc(s.format) + '</span>' +
+    '</span>' +
+    '<span lang="' + lg(s.title) + '" style="font-size:' + (opts.button ? 17 : 18) + 'px;font-weight:600;line-height:1.45;color:var(--navy);text-wrap:pretty">' + esc(s.title) + '</span>' +
+    (s.field ? '<span style="font-size:14.5px;line-height:1.5;color:var(--muted)">' + esc(s.field) + '</span>' : '') +
+    '<span class="card-foot"><span class="avatar" aria-hidden="true" style="width:' + (opts.button ? 32 : 36) + 'px;height:' + (opts.button ? 32 : 36) + 'px;font-size:' + (opts.button ? 14 : 15) + 'px">' + esc(initialOf(s.presenter)) + '</span>' +
+      '<span style="font-size:14.5px;color:var(--text)"><span lang="th">' + esc(s.presenter) + '</span><span style="color:var(--muted)"> · ' + esc(s.cls || 'Class not listed') + '</span></span></span>' +
+  '</' + close + '>';
+}
+
+/* ---------- pages ---------- */
+
+const PAGES = {};
+
+PAGES.home = {
+  title: 'Home',
+  render() {
+    const S = STORE;
+    const nOpp = S.opps.length;
+    const openNow = featured(S.opps.filter((o) => !o.isOpenLab), 3);
+    const posts = S.past.slice(0, 2);
+    const next = S.upcoming[0];
+    return '' +
+    '<section aria-labelledby="hero-h" class="hero">' +
+      '<svg class="decor" viewBox="0 0 800 800" aria-hidden="true"><path d="M150 790V270c0-88 62-150 150-150h170c140 0 240 110 240 240s-100 240-240 240" fill="none" stroke="#5BC6EA" style="stroke-width:64;stroke-linecap:round;stroke-opacity:.09"></path><path d="M520 330c-110 0-190 80-190 170s80 170 190 170h190" fill="none" stroke="#F4B13A" style="stroke-width:64;stroke-linecap:round;stroke-opacity:.10"></path></svg>' +
+      '<div class="wrap hero-grid">' +
+        '<div style="min-width:0">' +
+          '<p class="kicker cyan">MDCU Research Division</p>' +
+          '<h1 id="hero-h"><span>Today’s research,</span><span style="color:var(--gold)">tomorrow’s cure.</span></h1>' +
+          '<p class="mono" style="margin:16px 0 0;font-size:13px;line-height:1.5;letter-spacing:.02em;color:var(--on-ink-2)">Inspired by Mayo Clinic’s “Tomorrow’s Cure”</p>' +
+          '<p lang="th" style="margin:22px 0 0;font-size:20px;line-height:1.5;color:var(--on-ink-2)">ชมรมวิจัยโดยนิสิตแพทย์ เพื่อนิสิตแพทย์จุฬาฯ</p>' +
+          '<p style="margin:22px 0 0;max-width:560px;font-size:18px;line-height:1.65;color:var(--on-ink);text-wrap:pretty">A student-led research club affiliated with the Student Union of the Faculty of Medicine, Chulalongkorn University.</p>' +
+          '<div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;margin-top:36px">' +
+            '<a class="btn-primary" href="#/opportunities">Find a research project' + icon('arrow') + '</a>' +
+            '<a href="#/events" style="display:inline-flex;align-items:center;min-height:44px;color:#FFFFFF;font-size:16px;font-weight:500;text-underline-offset:6px">See what\'s on</a>' +
+          '</div>' +
+          '<div class="hero-stats">' +
+            '<div><p class="v">' + nOpp + '</p><p class="l">Open projects</p></div>' +
+            '<div><p class="v">' + S.pres.length + '</p><p class="l">Conference presentations</p></div>' +
+            '<div><p class="v">' + S.countries + '</p><p class="l">Countries</p></div>' +
+          '</div>' +
+        '</div>' +
+        '<aside aria-labelledby="open-now-h" class="open-now">' +
+          '<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 16px;padding-bottom:14px">' +
+            '<h2 id="open-now-h" class="mono" style="margin:0;font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--cyan)">Open now</h2>' +
+            '<span class="mono" style="font-size:12px;color:var(--on-ink-2)">Academic year ' + esc(CONFIG.academicYear) + '</span>' +
+          '</div>' +
+          '<ul style="list-style:none;margin:0;padding:0">' +
+            openNow.map((o) => '<li style="border-top:1px solid rgba(255,255,255,.12)"><a class="prow" href="#/opportunities/' + o.id + '">' +
+              '<span class="prow-title" lang="' + lg(o.title) + '" style="display:block;font-size:16.5px;font-weight:600;line-height:1.45;text-wrap:pretty">' + esc(o.title) + '</span>' +
+              '<span style="display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:8px;font-size:13.5px;color:var(--on-ink-2)"><span lang="th">' + esc(o.dept) + '</span>' +
+              '<span class="mono" style="font-size:12px;color:var(--gold)">' + esc(seatsShort(o) || o.timeline) + '</span></span></a></li>').join('') +
+          '</ul>' +
+          '<a href="#/opportunities" style="display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:52px;border-top:1px solid rgba(255,255,255,.12);padding-top:14px;color:var(--gold);font-weight:600;text-decoration:none">Browse all ' + plural(nOpp, 'project', 'projects') + icon('arrow') + '</a>' +
+          '<p style="display:flex;align-items:center;gap:8px;margin:10px 0 0;font-size:13px;line-height:1.5;color:var(--on-ink-2)">' + icon('lock', 'xs', 'color:var(--gold)') + 'Advisors and contacts unlock with your docchula.com account</p>' +
+        '</aside>' +
+      '</div>' +
+    '</section>' +
+
+    '<section aria-labelledby="who-h" style="background:#FFFFFF;padding:112px 0 104px">' +
+      '<div class="wrap duo">' +
+        '<div style="min-width:0">' +
+          '<p class="kicker">01 — Who we are</p>' +
+          '<h2 id="who-h" class="h2">MDCU Research club</h2>' +
+          '<blockquote style="margin:28px 0 0;font-size:clamp(22px,1.2vw + 14px,30px);line-height:1.45;font-weight:500;color:var(--text);text-wrap:pretty">“We are the community of medical students who are intrigued by the conduct of research while trying to <mark style="padding:0 2px;background:linear-gradient(transparent 58%,rgba(244,177,58,.55) 58%);color:inherit;font-weight:700">promote and initiate</mark> research at the student level.”</blockquote>' +
+          '<a class="link-arrow" href="#/about" style="margin-top:24px;font-size:16px">About us' + icon('arrow') + '</a>' +
+        '</div>' +
+        photoSlot(CONFIG.photos.homeGroup, 'Paper Reading workshop group shot', '4 / 3') +
+      '</div>' +
+    '</section>' +
+
+    '<section aria-labelledby="mission-h" style="background:var(--bg-2);border-top:1px solid var(--line);padding:104px 0">' +
+      '<div class="wrap">' +
+        '<p class="kicker">02 — Our mission</p>' +
+        '<h2 id="mission-h" class="h2">Our mission</h2>' +
+        '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(380px,100%),1fr));gap:48px 40px;margin-top:48px">' +
+          '<article style="display:flex;flex-direction:column;gap:16px;min-width:0">' +
+            photoSlot(CONFIG.photos.workshop, 'workshop audience', '16 / 9', 'alt') +
+            '<h3 style="margin:8px 0 0;font-size:clamp(24px,1vw + 16px,30px);line-height:1.25;font-weight:700;color:var(--navy)">“One stop shop for student research opportunities”</h3>' +
+            '<p class="body">Through our activities such as workshops, lab tours and research talks, we are equipping students with <strong style="color:var(--navy)">inspiration, knowledge, and skill</strong> in medical research.</p>' +
+            '<div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:4px"><a class="btn-ghost" href="#/opportunities/how">Researcher requirements</a><a class="btn-ghost" href="#/events/past">Previous events</a></div>' +
+          '</article>' +
+          '<article style="display:flex;flex-direction:column;gap:16px;min-width:0">' +
+            photoSlot(CONFIG.photos.peer, 'peer-to-peer session', '16 / 9', 'alt') +
+            '<h3 style="margin:8px 0 0;font-size:clamp(24px,1vw + 16px,30px);line-height:1.25;font-weight:700;color:var(--navy)">“MDCU research community”</h3>' +
+            '<p class="body">MDCU research club aims to be a safe space where interested students can share and learn about doing research <strong style="color:var(--navy)">peer-to-peer</strong>.</p>' +
+            '<div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:4px"><a class="btn-ghost" href="#/showcase">Researcher profiles</a></div>' +
+          '</article>' +
+        '</div>' +
+      '</div>' +
+    '</section>' +
+
+    '<section aria-labelledby="programs-h" style="background:#FFFFFF;border-top:1px solid var(--line);padding:112px 0">' +
+      '<div class="wrap">' +
+        '<div style="max-width:680px;margin-bottom:56px"><p class="kicker">03 — What we do</p><h2 id="programs-h" class="h2">Our impact</h2></div>' +
+        '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:40px 32px">' +
+          [
+            ['01', 'Research Workshops', 'Building essential skill-sets for students to pursue their interest in research.', 'Recent: Statistics &amp; Stata · AI in Medical Research · High-Impact Study Design', '#/events/past', 'See workshops'],
+            ['02', 'Lab Tours', 'Hands-on insight into the life of researchers, and a chance to see the frontier of medical research.', 'Recent: Center of Excellence in Systems Biology · Cancer Biomarker Research Lab', '#/events/past', 'See lab tours'],
+            ['03', 'Research Talks', 'Educating and inspiring the next generation of researchers.', 'Recent: First Meet 2026 — talks from four senior researchers', '#/events/past', 'See talks'],
+            ['04', 'Opportunities Board', 'Faculty post projects looking for student researchers. Find one that fits and contact the advisor directly.', plural(nOpp, 'project', 'projects') + ' open for ' + esc(CONFIG.academicYear), '#/opportunities', 'Browse projects']
+          ].map((p) => '<article class="prog"><p class="mono" style="margin:0;font-size:13px;font-weight:600;color:var(--blue)">' + p[0] + '</p>' +
+            '<h3 style="margin:0;font-size:22px;line-height:1.3;font-weight:600;color:var(--navy)">' + p[1] + '</h3>' +
+            '<p style="margin:0;font-size:16px;line-height:1.65;color:var(--text-2)">' + p[2] + '</p>' +
+            '<p class="mono" style="margin:0;font-size:12px;line-height:1.7;color:var(--muted)">' + p[3] + '</p>' +
+            '<a href="' + p[4] + '" style="margin-top:4px;font-weight:600;font-size:15px">' + p[5] + '</a></article>').join('') +
+        '</div>' +
+      '</div>' +
+    '</section>' +
+
+    '<section aria-labelledby="events-h" style="background:var(--bg-2);border-top:1px solid var(--line);padding:112px 0">' +
+      '<div class="wrap">' +
+        '<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px 32px;margin-bottom:56px">' +
+          '<div style="max-width:680px"><p class="kicker">04 — Events</p><h2 id="events-h" class="h2">Workshops, lab tours &amp; talks</h2></div>' +
+          '<a class="link-arrow" href="#/events">All events' + icon('arrow') + '</a>' +
+        '</div>' +
+        '<div class="split">' +
+          '<div style="min-width:0">' +
+            '<h3 class="kicker navy" style="margin:0 0 16px">Upcoming</h3>' +
+            (next ?
+              '<div style="display:flex;flex-direction:column;gap:12px;background:var(--ink);color:#FFFFFF;padding:28px">' +
+                '<p style="margin:0;font-size:44px;font-weight:700;line-height:1;color:var(--gold)">' + +next.date.slice(8) + '</p>' +
+                '<p class="mono" style="margin:0;font-size:13px;letter-spacing:.06em;color:var(--on-ink-2)">' + longDate(next.date).replace(/^\d+ /, '') + (next.time ? ' · ' + esc(next.time) : '') + '</p>' +
+                '<p style="margin:6px 0 0;font-size:21px;font-weight:700;line-height:1.3">' + esc(next.title) + '</p>' +
+                (next.venue ? '<p style="margin:0;font-size:15px;line-height:1.6;color:var(--on-ink)">' + esc(next.venue) + '</p>' : '') +
+                '<a class="btn-primary md" href="#/events/' + next.id + '" style="align-self:flex-start;margin-top:6px">Details &amp; registration' + icon('arrow') + '</a>' +
+                (S.upcoming.length > 1 ? '<a href="#/events" style="color:#FFFFFF;font-size:14.5px">+ ' + plural(S.upcoming.length - 1, 'more upcoming event', 'more upcoming events') + '</a>' : '') +
+              '</div>'
+            :
+              '<div style="display:flex;flex-direction:column;gap:14px;background:#FFFFFF;border:1px solid var(--line);padding:28px">' +
+                '<span style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;background:var(--tint-b);color:var(--blue)">' + icon('cal') + '</span>' +
+                '<p style="margin:0;font-size:19px;font-weight:600;line-height:1.35;color:var(--navy)">Nothing scheduled right now</p>' +
+                '<p style="margin:0;font-size:15.5px;line-height:1.65;color:var(--text-2)">New dates go up on Instagram first, and most events are first come, first served — follow to hear early.</p>' +
+                '<a class="btn-ghost" ' + href(CONFIG.instagramUrl) + ' style="align-self:flex-start">' + icon('ig') + 'Follow @researchclub.mdcu</a>' +
+              '</div>') +
+          '</div>' +
+          '<div style="min-width:0">' +
+            '<h3 class="kicker navy" style="margin:0 0 4px">What\'s new</h3>' +
+            '<div>' + posts.map((p) => '<article class="post" style="padding:24px 0;border-bottom:1px solid var(--line)">' +
+              (p.photo ? '<img class="photo" src="' + esc(p.photo) + '" alt="' + esc(p.title) + ' poster" loading="lazy" style="aspect-ratio:3/4">' :
+                '<div class="ph poster" role="img" aria-label="Placeholder for the ' + esc(p.title) + ' poster" style="padding:8px"><span style="padding:3px 6px;font-size:10.5px">Poster</span></div>') +
+              '<div style="display:flex;flex-direction:column;gap:8px;min-width:0">' +
+                '<p class="mono" style="margin:0;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--blue)">What\'s new · ' + monthYear(p.date) + '</p>' +
+                '<h4 class="post-title" style="margin:0;font-size:19px;font-weight:600;line-height:1.4;color:var(--navy)">' + esc(p.title) + '</h4>' +
+                '<p lang="' + lg(p.description) + '" style="margin:0;font-size:15px;line-height:1.7;color:var(--text-2)">' + esc(p.description) + '</p>' +
+                '<a href="#/events/' + p.id + '" style="display:inline-flex;align-items:center;align-self:flex-start;min-height:40px;font-weight:600;font-size:15px">Read more</a>' +
+              '</div></article>').join('') + '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+    '</section>' +
+
+    '<section aria-labelledby="showcase-h" style="background:#FFFFFF;border-top:1px solid var(--line);padding:112px 0">' +
+      '<div class="wrap">' +
+        '<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px 32px;margin-bottom:48px">' +
+          '<div style="max-width:680px"><p class="kicker">05 — Research showcase</p><h2 id="showcase-h" class="h2">Our members at the podium</h2>' +
+          '<p style="margin:16px 0 0;font-size:18px;line-height:1.6;color:var(--muted)">Studies by MDCU students, presented at conferences around the world since ' + esc(S.years[S.years.length - 1] || '') + '.</p></div>' +
+          '<a class="link-arrow" href="#/showcase">Explore the showcase' + icon('arrow') + '</a>' +
+        '</div>' +
+        '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:48px">' +
+          [[S.pres.length, 'Presentations'], [S.conferences, 'Conferences'], [S.countries, 'Countries']].map((x) =>
+            '<div style="padding:28px 24px 28px 0"><p class="statnum" style="font-size:clamp(44px,3vw + 16px,64px)">' + x[0] + '</p><p class="statlbl">' + x[1] + '</p></div>').join('') +
+        '</div>' +
+        '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:24px">' +
+          featured(S.pres, 3).map((s) => presCard(s)).join('') +
+        '</div>' +
+        '<div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 22px;margin-top:40px;padding-top:24px;border-top:1px solid var(--line-2)">' +
+          '<span class="mono" style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--navy)">Presented at</span>' +
+          S.acronyms.map((a) => '<span class="mono" style="font-size:14px;color:var(--muted)">' + esc(a) + '</span>').join('') +
+        '</div>' +
+        '<div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;margin-top:40px">' +
+          '<a class="btn-ghost lg" href="#/showcase">Explore all ' + S.pres.length + ' presentations</a>' +
+          '<a href="#/showcase/add" style="font-weight:500;font-size:15.5px">Presented recently? Add your work</a>' +
+        '</div>' +
+      '</div>' +
+    '</section>' +
+
+    '<section aria-labelledby="involved-h" class="on-dark" style="background:var(--ink);color:#FFFFFF;padding:104px 0 88px">' +
+      '<div class="wrap">' +
+        '<p class="kicker cyan">06 — Get involved</p>' +
+        '<h2 id="involved-h" class="h2" style="margin-bottom:48px;color:#FFFFFF">Make research part of your MDCU years</h2>' +
+        '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:40px 32px">' +
+          '<div class="involve"><h3 style="margin:0;font-size:21px;font-weight:600;color:#FFFFFF">Join a project</h3><p style="margin:0;font-size:16px;line-height:1.65;color:var(--on-ink)">Browse faculty projects for ' + esc(CONFIG.academicYear) + ', check what each advisor asks for, and reach out directly.</p><a href="#/opportunities">Browse opportunities' + icon('arrow') + '</a></div>' +
+          '<div class="involve"><h3 style="margin:0;font-size:21px;font-weight:600;color:#FFFFFF">Follow @researchclub.mdcu</h3><p style="margin:0;font-size:16px;line-height:1.65;color:var(--on-ink)">Event dates, registration links and Core Team recruitment are posted on Instagram first.</p><a ' + href(CONFIG.instagramUrl) + '>Open Instagram' + icon('ext') + '</a></div>' +
+          '<div class="involve"><h3 style="margin:0;font-size:21px;font-weight:600;color:#FFFFFF">MDCU Young Researcher Group</h3><p style="margin:0;font-size:16px;line-height:1.65;color:var(--on-ink)">Our Facebook community for MDCU students doing — or thinking about — research.</p><a ' + href(CONFIG.facebookGroupUrl) + '>Join the group' + icon('ext') + '</a></div>' +
+        '</div>' +
+      '</div>' +
+    '</section>';
+  }
+};
+
+PAGES.opportunities = {
+  title: 'Opportunities',
+  state: { q: '', dept: 'all', kind: 'all', sel: null },
+  render() {
+    const signedIn = CONFIG.showProjectDetails;
+    return '' +
+    '<section aria-labelledby="opp-h" style="background:#FFFFFF;padding:72px 0 56px">' +
+      '<div class="wrap" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:32px">' +
+        '<div style="max-width:760px;min-width:0">' +
+          '<p class="kicker">Opportunities · Academic year ' + esc(CONFIG.academicYear) + '</p>' +
+          '<h1 id="opp-h" class="h1">Research projects open to MDCU students</h1>' +
+          '<p class="lead">Faculty post projects that need student researchers. Browse, check what each advisor asks for, then contact them directly — the club helps spread the word but doesn\'t handle applications.</p>' +
+          '<p style="display:flex;align-items:center;gap:8px;margin:20px 0 0;font-size:14.5px;color:var(--muted)">' + icon('info', 'sm', 'color:var(--blue)') + 'Topics are public. Advisors, contacts and how to apply are for MDCU students signed in with docchula.com.</p>' +
+        '</div>' +
+        '<a class="btn-ghost" href="#/opportunities/faculty">Faculty: post a project</a>' +
+      '</div>' +
+    '</section>' +
+
+    '<section id="how" aria-label="How it works" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:40px 0">' +
+      '<ol class="wrap steps">' +
+        [['01', 'Find a fit', 'Search by topic, keyword or department. "Open lab" means the advisor welcomes students but hasn\'t fixed a project yet.'],
+         ['02', 'Prepare what they ask for', 'Usually a CV and letter of intent; some advisors also want a transcript (CR25) or student-status certificate (CR23).'],
+         ['03', 'Contact the advisor', 'Use the channel they prefer — it\'s listed on every project. Be specific about why this project interests you.']]
+          .map((s) => '<li><span class="mono" style="font-size:14px;font-weight:600;color:var(--blue);padding-top:2px">' + s[0] + '</span><span style="display:flex;flex-direction:column;gap:6px"><span style="font-size:17px;font-weight:600;color:var(--navy)">' + s[1] + '</span><span style="font-size:15px;line-height:1.6;color:var(--text-2)">' + esc(s[2]) + '</span></span></li>').join('') +
+      '</ol>' +
+    '</section>' +
+
+    '<section aria-labelledby="finder-h" style="background:#FFFFFF;padding:56px 0 96px">' +
+      '<div class="wrap">' +
+        '<h2 id="finder-h" class="sr">Find a project</h2>' +
+        (signedIn ?
+          '<p style="display:flex;align-items:center;gap:8px;margin:0 0 20px;font-size:14.5px;color:var(--tint-b-fg)">' + icon('check', 'sm') + 'Signed in with your docchula.com account — full project details are shown.</p>'
+        :
+          '<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;margin-bottom:28px;padding:22px 26px;background:var(--ink);color:#FFFFFF">' +
+            '<div style="display:flex;gap:16px;align-items:flex-start;flex:1 1 420px;min-width:0">' +
+              '<span style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;flex:none;background:rgba(244,177,58,.14);color:var(--gold)">' + icon('lock') + '</span>' +
+              '<div style="display:flex;flex-direction:column;gap:4px;min-width:0"><p style="margin:0;font-size:17px;font-weight:600;color:#FFFFFF">Project details are for MDCU students</p><p style="margin:0;font-size:15px;line-height:1.6;color:var(--on-ink)">Sign in with your docchula.com account to see who runs each project, what it involves and how to get in touch.</p></div>' +
+            '</div>' +
+            '<a class="btn-primary md" ' + href(CONFIG.membersUrl || mailto('Access to the Opportunities list')) + '>' + icon('lock') + 'Sign in with docchula.com</a>' +
+          '</div>') +
+        '<div style="display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px;padding-bottom:20px;border-bottom:1px solid var(--line)">' +
+          '<div style="display:flex;flex-direction:column;gap:8px;flex:2 1 320px;min-width:0"><label for="opp-q" class="flabel">Search</label>' +
+            '<span class="searchbox">' + icon('search') + '<input id="opp-q" class="field" type="search" autocomplete="off" placeholder="Topic, keyword, advisor or department"></span></div>' +
+          '<div style="display:flex;flex-direction:column;gap:8px;flex:1 1 240px;min-width:0"><label for="opp-dept" class="flabel">Department</label>' +
+            '<select id="opp-dept" class="field" style="padding:0 12px;font-size:15px"><option value="all">All departments</option>' +
+              STORE.depts.map((d) => '<option value="' + esc(d) + '">' + esc(d) + '</option>').join('') +
+            '</select></div>' +
+        '</div>' +
+        '<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 24px;padding:16px 0 8px">' +
+          '<div role="group" aria-label="Project type" id="opp-kinds" style="display:flex;flex-wrap:wrap;gap:8px"></div>' +
+          '<p aria-live="polite" id="opp-count" class="mono" style="margin:0;font-size:12.5px;color:var(--muted)"></p>' +
+        '</div>' +
+        '<div class="finder">' +
+          '<div style="min-width:0">' +
+            '<div id="opp-list"></div>' +
+            '<p style="margin:20px 0 0;font-size:14px;line-height:1.6;color:var(--muted)">Earlier lists: ' +
+              CONFIG.archive.map((a) => (a.url ? '<a ' + href(a.url) + '>' + esc(a.label) + '</a>' : esc(a.label))).join(' · ') +
+              ' — kept for reference; most of those projects are closed.</p>' +
+          '</div>' +
+          '<aside class="detail" id="opp-detail" aria-labelledby="detail-h"></aside>' +
+        '</div>' +
+      '</div>' +
+    '</section>' +
+
+    '<section id="faculty" aria-labelledby="faculty-h" style="background:var(--bg-2);border-top:1px solid var(--line);padding:80px 0">' +
+      '<div class="wrap" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:28px 48px">' +
+        '<div style="max-width:640px;min-width:0"><p class="kicker">For faculty</p><h2 id="faculty-h" class="h2 sm">Looking for student researchers?</h2>' +
+          '<p style="margin:14px 0 0;font-size:17px;line-height:1.65;color:var(--text-2)">Submit your project through our short form. It appears on this board automatically, and we\'ll mark it closed once you\'ve found your students.</p></div>' +
+        '<div style="display:flex;flex-wrap:wrap;gap:12px 16px">' +
+          '<a class="btn-primary" ' + href(formOr(CONFIG.facultyFormUrl, 'Post a research project')) + '>Post a project' + icon('ext') + '</a>' +
+          '<a class="btn-ghost lg" ' + href(mailto()) + '>Email the club</a>' +
+        '</div>' +
+      '</div>' +
+    '</section>';
+  },
+  mount(sub) {
+    const st = this.state;
+    const q = $('#opp-q'), dept = $('#opp-dept');
+    q.value = st.q; dept.value = st.dept;
+    q.addEventListener('input', () => { st.q = q.value; this.update(); });
+    dept.addEventListener('change', () => { st.dept = dept.value; this.update(); });
+    $('#opp-kinds').addEventListener('click', (e) => { const b = e.target.closest('[data-kind]'); if (b) { st.kind = b.dataset.kind; this.update(); } });
+    $('#opp-list').addEventListener('click', (e) => {
+      const b = e.target.closest('[data-pick]');
+      if (b) { st.sel = b.dataset.pick; this.update(); this.openSheet(); return; }
+      if (e.target.closest('[data-clear]')) { st.q = ''; st.dept = 'all'; st.kind = 'all'; q.value = ''; dept.value = 'all'; this.update(); }
+    });
+    $('#opp-detail').addEventListener('click', (e) => { if (e.target.closest('[data-close]')) this.closeSheet(); });
+    $('#opp-detail').addEventListener('keydown', (e) => { if (e.key === 'Escape' && e.currentTarget.classList.contains('sheet')) this.closeSheet(); });
+    if (sub && STORE.opps.some((o) => o.id === sub)) { st.sel = sub; st.q = ''; st.dept = 'all'; st.kind = 'all'; q.value = ''; dept.value = 'all'; }
+    this.update();
+    if (sub && st.sel === sub) { const row = $('[data-pick="' + sub + '"]'); if (row) row.scrollIntoView({ block: 'center' }); this.openSheet(); }
+  },
+  openSheet() {
+    if (!window.matchMedia('(max-width:960px)').matches) return;
+    const d = $('#opp-detail'); d.classList.add('sheet'); document.body.style.overflow = 'hidden';
+    const c = $('[data-close]', d); if (c) c.focus();
+  },
+  closeSheet() {
+    const d = $('#opp-detail'); if (!d) return;
+    d.classList.remove('sheet'); document.body.style.overflow = '';
+    const row = $('[data-pick="' + this.state.sel + '"]'); if (row) row.focus();
+  },
+  unmount() { document.body.style.overflow = ''; },
+  update() {
+    const st = this.state;
+    const locked = !CONFIG.showProjectDetails;
+    const q = st.q.trim().toLowerCase();
+    const matchQ = (r) => !q || [r.title, locked ? '' : r.advisor, r.dept, r.keywords.join(' ')].join(' ').toLowerCase().indexOf(q) !== -1;
+    const base = STORE.opps.filter((r) => matchQ(r) && (st.dept === 'all' || r.dept === st.dept));
+    const list = base.filter((r) => st.kind === 'all' || (st.kind === 'open') === r.isOpenLab);
+    const sel = list.find((r) => r.id === st.sel) || list[0] || null;
+
+    $('#opp-kinds').innerHTML = [['all', 'All', base.length], ['project', 'Defined projects', base.filter((r) => !r.isOpenLab).length], ['open', 'Open labs', base.filter((r) => r.isOpenLab).length]]
+      .map((k) => '<button type="button" class="chip" data-kind="' + k[0] + '" aria-pressed="' + (st.kind === k[0]) + '" style="min-height:40px">' + k[1] + '<span class="n">' + k[2] + '</span></button>').join('');
+    $('#opp-count').textContent = list.length === 1 ? 'Showing 1 project' : 'Showing ' + list.length + ' projects';
+
+    $('#opp-list').innerHTML = list.length ?
+      '<ul style="list-style:none;margin:0;padding:0;border-top:1px solid var(--line)">' + list.map((r) => {
+        const on = !!sel && sel.id === r.id;
+        const short = seatsShort(r) || (locked ? '' : r.timeline);
+        return '<li style="border-bottom:1px solid var(--line)"><button type="button" class="orow" data-pick="' + r.id + '" aria-pressed="' + on + '">' +
+          '<span style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;width:100%"><span class="tag ' + (r.isOpenLab ? 'g' : 'b') + '">' + (r.isOpenLab ? 'Open lab' : 'Project') + '</span>' +
+          '<span class="mono" style="margin-left:auto;font-size:12px;color:var(--muted)">' + esc(short) + '</span></span>' +
+          '<span class="orow-title" lang="' + (r.isOpenLab ? 'en' : lg(r.title)) + '" style="font-size:17px;font-weight:600;line-height:1.45;color:var(--navy);text-wrap:pretty">' + esc(r.title) + '</span>' +
+          (locked ?
+            '<span style="font-size:14.5px;line-height:1.5;color:var(--text-2)"><span class="bar" aria-hidden="true" style="width:' + (110 + (r.advisor.length * 7) % 70) + 'px;height:.95em;vertical-align:-.12em"></span><span class="sr">Advisor hidden until you sign in.</span> · <span lang="th">' + esc(r.dept) + '</span></span>' :
+            '<span lang="th" style="font-size:14.5px;line-height:1.5;color:var(--text-2)">' + esc(r.advisor) + ' · ' + esc(r.dept) + '</span>') +
+          (!r.isOpenLab && r.keywords.length ? '<span style="display:flex;flex-wrap:wrap;gap:6px">' + r.keywords.slice(0, 3).map((w) => '<span class="kw">' + esc(w) + '</span>').join('') + '</span>' : '') +
+        '</button></li>';
+      }).join('') + '</ul>'
+    :
+      '<div class="empty"><p style="font-size:18px;font-weight:600;color:var(--navy)">No projects match those filters</p><p style="font-size:15px;line-height:1.6;color:var(--text-2)">Try a broader keyword, or check back — new projects are added as faculty submit them.</p>' +
+      '<button type="button" class="btn-ghost" data-clear style="min-height:44px;padding:0 18px">Clear filters</button></div>';
+
+    const det = $('#opp-detail');
+    if (!sel) { det.innerHTML = '<p style="margin:0;padding:32px;font-size:15.5px;color:var(--muted)">Select a project to see the details.</p>'; return; }
+    const contactUrl = CONFIG.membersUrl || mailto('Contact for: ' + sel.title);
+    const lockBlock = (w) => '<span class="bar" aria-hidden="true" style="display:block;width:' + w + 'px;height:15px"></span><span class="sr">Hidden until you sign in.</span>';
+    det.innerHTML = '<div style="display:flex;flex-direction:column;gap:22px;padding:32px">' +
+      '<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px">' +
+        '<span style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px"><span class="tag b">Open</span><span class="mono" style="font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)">' + (sel.isOpenLab ? 'Open lab · no fixed project yet' : 'Defined project') + '</span></span>' +
+        '<button type="button" class="icon-btn boxed sheet-close" data-close aria-label="Close details">' + icon('close') + '</button>' +
+      '</div>' +
+      '<h2 id="detail-h" lang="' + (sel.isOpenLab ? 'en' : lg(sel.title)) + '" style="margin:0;font-size:26px;line-height:1.3;font-weight:700;letter-spacing:-.01em;color:var(--navy);text-wrap:pretty">' + esc(sel.title) + '</h2>' +
+      '<div style="display:flex;align-items:center;gap:14px;padding:16px 0;border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)">' +
+        '<span class="avatar" aria-hidden="true" style="width:44px;height:44px;font-size:17px">' + (locked ? icon('lock') : esc(initialOf(sel.advisor))) + '</span>' +
+        '<span style="display:flex;flex-direction:column;gap:2px;min-width:0">' +
+          (locked ? '<span style="display:block;padding:4px 0">' + lockBlock(170).replace('Hidden until you sign in.', 'Advisor hidden until you sign in.') + '</span>' : '<span lang="th" style="font-size:16px;font-weight:600;color:var(--text)">' + esc(sel.advisor) + '</span>') +
+          '<span lang="th" style="font-size:14.5px;color:var(--muted)">' + esc(sel.dept) + '</span>' +
+        '</span>' +
+      '</div>' +
+      '<dl class="dl">' +
+        '<div><dt class="dt">Students needed</dt><dd class="dd">' + (sel.seats ? plural(+sel.seats, 'student', 'students') : 'Not specified') + '</dd></div>' +
+        '<div><dt class="dt">Timeline</dt>' + (locked ? '<dd class="dd" style="padding-top:4px">' + lockBlock(120) + '</dd>' : '<dd class="dd">' + esc(sel.timeline) + '</dd>') + '</div>' +
+        '<div><dt class="dt">Preferred contact</dt>' + (locked ? '<dd class="dd" style="padding-top:4px">' + lockBlock(90) + '</dd>' : '<dd class="dd">' + esc(sel.contact.join(', ')) + '</dd>') + '</div>' +
+      '</dl>' +
+      '<div style="display:flex;flex-wrap:wrap;gap:6px">' + sel.keywords.map((w) => '<span class="kw lg">' + esc(w) + '</span>').join('') + '</div>' +
+      (locked ?
+        '<div aria-hidden="true" style="display:flex;flex-direction:column;gap:18px">' +
+          [['About the project', [100, 94, 62]], ['Your role', [88, 47]], ['Requirement', [54, 41]]].map((b) =>
+            '<div style="display:flex;flex-direction:column;gap:8px"><p style="margin:0;font-size:15px;font-weight:600;color:var(--navy)">' + b[0] + '</p>' + b[1].map((w) => '<span class="lockbar" style="width:' + w + '%"></span>').join('') + '</div>').join('') +
+        '</div>' +
+        '<div style="display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:20px;background:var(--bg-2);border:1px solid var(--line)">' +
+          '<p style="display:flex;align-items:center;gap:10px;margin:0;font-size:16px;font-weight:600;color:var(--navy)">' + icon('lock') + 'Sign in to see the full project</p>' +
+          '<p style="margin:0;font-size:15px;line-height:1.6;color:var(--text-2)">Advisor, timeline, what you’ll do and how to get in touch are shared with MDCU students only.</p>' +
+          '<a class="btn-primary md" ' + href(CONFIG.membersUrl || mailto('Access to the Opportunities list')) + '>' + icon('lock') + 'Sign in with docchula.com</a>' +
+        '</div>'
+      :
+        (sel.summary ? '<div class="dblock"><h3>About the project</h3><p lang="' + lg(sel.summary) + '">' + esc(sel.summary) + '</p></div>' : '') +
+        (sel.role ? '<div class="dblock"><h3>Your role</h3><p lang="' + lg(sel.role) + '">' + esc(sel.role) + '</p></div>' : '') +
+        (sel.skills ? '<div class="dblock"><h3>What you\'ll learn</h3><p lang="' + lg(sel.skills) + '">' + esc(sel.skills) + '</p></div>' : '') +
+        (sel.requirements.length ? '<div class="dblock" style="gap:8px"><h3>Requirement</h3><ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px">' +
+          sel.requirements.map((d) => '<li style="display:flex;align-items:flex-start;gap:10px;font-size:15px;line-height:1.55;color:var(--text-2)">' + icon('check', 'sm', 'margin-top:2px;color:var(--blue)') + '<span>' + esc(d) + '</span></li>').join('') + '</ul></div>' : '')
+      ) +
+      (sel.isOpenLab ? '<p style="margin:0;padding:14px 16px;background:var(--tint-g);font-size:15px;line-height:1.6;color:#5C3A00">This advisor welcomes interested students but hasn\'t fixed a project yet. Mention the topics above that interest you when you get in touch.</p>' : '') +
+      (locked ? '' :
+        '<div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;padding-top:6px">' +
+          '<a class="btn-primary" ' + href(contactUrl) + ' style="padding:0 22px">Contact via ' + esc(sel.contact[0] || 'email') + icon('arrow') + '</a>' +
+          '<a ' + href(mailto('Outdated project info: ' + sel.title)) + ' style="font-size:14.5px">Report outdated info</a>' +
+        '</div>') +
+    '</div>';
+  }
+};
+
+PAGES.events = {
+  title: 'Events',
+  render() {
+    const S = STORE;
+    const calUrl = (e) => {
+      const d = e.date.replace(/-/g, '');
+      const m = String(e.time || '').match(/(\d{1,2})[:.](\d{2})\s*[–-]\s*(\d{1,2})[:.](\d{2})/);
+      let dates;
+      if (m) dates = d + 'T' + m[1].padStart(2, '0') + m[2] + '00/' + d + 'T' + m[3].padStart(2, '0') + m[4] + '00';
+      else { const n = new Date(e.date + 'T00:00:00'); n.setDate(n.getDate() + 1); dates = d + '/' + n.getFullYear() + String(n.getMonth() + 1).padStart(2, '0') + String(n.getDate()).padStart(2, '0'); }
+      return 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent(e.title) + '&dates=' + dates + '&ctz=Asia%2FBangkok' +
+        '&location=' + encodeURIComponent(e.venue || '') + '&details=' + encodeURIComponent((e.description || '') + (e.registerUrl ? '\n\nRegister: ' + e.registerUrl : ''));
+    };
+    const upcoming = S.upcoming.map((e) => {
+      const status = e.status || (e.registerUrl ? 'Registration open' : '');
+      const closed = /full|closed/i.test(status);
+      const meta = [e.type, status, e.seats ? plural(+e.seats || e.seats, 'seat', 'seats') : ''].filter(Boolean).join(' · ');
+      const [y, mo, d] = e.date.split('-');
+      return '<article class="ev" id="' + e.id + '">' +
+        '<div><p style="margin:0;font-size:52px;font-weight:700;line-height:1;color:var(--gold)">' + (+d) + '</p><p class="mono" style="margin:10px 0 0;font-size:13px;letter-spacing:.06em;color:var(--on-ink-2)">' + MONTHS[+mo - 1] + ' ' + y + '</p></div>' +
+        '<div style="display:flex;flex-direction:column;gap:12px;min-width:0">' +
+          (meta ? '<p class="mono" style="margin:0;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--cyan)">' + esc(meta) + '</p>' : '') +
+          '<h3 style="margin:0;font-size:clamp(24px,1.2vw + 14px,32px);line-height:1.25;font-weight:700;color:#FFFFFF">' + esc(e.title) + '</h3>' +
+          '<p lang="' + lg(e.venue + e.description) + '" style="margin:0;font-size:16px;line-height:1.6;color:var(--on-ink)">' + esc([e.venue, e.time, e.description].filter(Boolean).join(' · ')) + '</p>' +
+          '<div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px;margin-top:8px">' +
+            (closed ? '<span class="btn-disabled">' + esc(status) + '</span>' :
+              e.registerUrl ? '<a class="btn-primary" ' + href(e.registerUrl) + ' style="padding:0 22px">Register' + icon('ext') + '</a>' :
+              '<a class="btn-primary" ' + href(CONFIG.instagramUrl) + ' style="padding:0 22px">Registration on Instagram' + icon('ext') + '</a>') +
+            '<a ' + href(calUrl(e)) + ' style="display:inline-flex;align-items:center;gap:8px;min-height:44px;color:#FFFFFF;font-weight:500">' + icon('calAdd') + 'Add to Google Calendar</a>' +
+          '</div>' +
+        '</div>' +
+      '</article>';
+    }).join('');
+    return '' +
+    '<section aria-labelledby="ev-h" style="background:#FFFFFF;padding:72px 0 48px">' +
+      '<div class="wrap"><p class="kicker">Events</p><h1 id="ev-h" class="h1" style="max-width:820px">Workshops, lab tours &amp; talks</h1>' +
+      '<p class="lead" style="max-width:720px">Through our activities such as workshops, lab tours and research talks, we are equipping students with inspiration, knowledge, and skill in medical research.</p></div>' +
+    '</section>' +
+    '<section aria-labelledby="next-h" style="background:#FFFFFF;padding:0 0 72px">' +
+      '<div class="wrap"><h2 id="next-h" class="kicker navy" style="margin:0 0 16px">Upcoming</h2>' +
+      (upcoming ||
+        '<div class="next"><div style="display:flex;gap:18px;align-items:flex-start;min-width:0">' +
+          '<span style="display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;flex:none;background:var(--tint-b);color:var(--blue)">' + icon('cal') + '</span>' +
+          '<div style="display:flex;flex-direction:column;gap:8px;min-width:0"><p style="margin:0;font-size:21px;font-weight:600;line-height:1.3;color:var(--navy)">No upcoming events yet</p>' +
+          '<p style="margin:0;max-width:620px;font-size:16px;line-height:1.65;color:var(--text-2)">New dates are posted on Instagram first. This list updates on its own as soon as the team adds the next event.</p></div></div>' +
+          '<a class="btn-ghost lg" ' + href(CONFIG.instagramUrl) + ' style="padding:0 22px;font-size:15.5px">' + icon('ig') + 'Follow @researchclub.mdcu</a></div>') +
+      '</div>' +
+    '</section>' +
+    '<section id="past" aria-labelledby="past-h" style="background:var(--bg-2);border-top:1px solid var(--line);padding:72px 0 104px">' +
+      '<div class="wrap"><h2 id="past-h" style="margin:0;font-size:clamp(30px,1.8vw + 12px,42px);line-height:1.15;font-weight:700;letter-spacing:-.02em;color:var(--navy)">Previous events</h2>' +
+      '<div style="margin-top:24px;border-top:2px solid var(--navy)">' +
+        (S.past.length ? S.past.map((p) => {
+          const missing = /add/i.test(p.photoLabel) && !p.photo;
+          const media = p.photo ? '<img class="photo" src="' + esc(p.photo) + '" alt="' + esc(p.title) + ' poster" loading="lazy" style="aspect-ratio:3/4">' :
+            '<div class="ph poster' + (missing ? ' missing' : '') + '" role="img" aria-label="' + (missing ? 'No photos yet — space for activity photos' : 'Placeholder for the event ' + esc(p.photoLabel.toLowerCase())) + '"><span>' + esc(p.photoLabel) + '</span></div>';
+          const links = p.links.filter((l) => l.url).map((l) => '<a ' + href(l.url) + ' style="display:inline-flex;align-items:center;gap:8px;min-height:40px;font-weight:600;font-size:15px">' + icon('play', 'sm') + esc(l.label) + '</a>');
+          if (p.postUrl) links.push('<a ' + href(p.postUrl) + ' style="display:inline-flex;align-items:center;min-height:40px;font-weight:600;font-size:15px">Read more</a>');
+          return '<article class="epost" id="' + p.id + '">' + media +
+            '<div style="display:flex;flex-direction:column;gap:10px;min-width:0;max-width:760px">' +
+              '<p class="mono" style="margin:0;font-size:12.5px;font-weight:600;letter-spacing:.06em;color:var(--blue)">' + longDate(p.date) + '</p>' +
+              '<h3 style="margin:0;font-size:clamp(22px,.8vw + 16px,28px);line-height:1.3;font-weight:700;color:var(--navy)">' + esc(p.title) + '</h3>' +
+              '<p lang="' + lg(p.venue) + '" style="display:flex;align-items:flex-start;gap:6px;margin:0;font-size:15px;line-height:1.55;color:var(--muted)">' + icon('pin', '', 'width:17px;height:17px;margin-top:3px') + esc([p.venue, p.time].filter(Boolean).join(' · ')) + '</p>' +
+              '<p lang="' + lg(p.description) + '" style="margin:4px 0 0;font-size:16px;line-height:1.75;color:var(--text-2)">' + esc(p.description) + '</p>' +
+              (links.length ? '<span style="display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:2px">' + links.join('') + '</span>' : '') +
+            '</div></article>';
+        }).join('') : '<p style="padding:24px 0;color:var(--muted)">Past events will appear here.</p>') +
+      '</div></div>' +
+    '</section>';
+  },
+  mount(sub) {
+    if (!sub) return;
+    const el = document.getElementById(sub);
+    if (el) { el.scrollIntoView({ block: 'start' }); if (el.classList.contains('epost')) el.classList.add('flash'); }
+  }
+};
+
+PAGES.showcase = {
+  title: 'Research Showcase',
+  state: { q: '', year: 'all', fmt: 'all', sel: undefined, showAll: false },
+  render() {
+    const S = STORE;
+    const ys = S.years.length ? (S.years[S.years.length - 1] + '–' + S.years[0].slice(2)) : '';
+    return '' +
+    '<section aria-labelledby="sc-h" style="background:var(--ink);color:#FFFFFF;padding:80px 0 0">' +
+      '<div class="wrap">' +
+        '<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:28px 48px">' +
+          '<div style="max-width:780px;min-width:0"><p class="kicker cyan">Research showcase</p>' +
+            '<h1 id="sc-h" class="h1" style="font-size:clamp(36px,3vw + 12px,58px);line-height:1.07;color:#FFFFFF">Research by MDCU students, presented worldwide</h1>' +
+            '<p class="lead" style="color:var(--on-ink)">Every study here was presented by an MDCU student at a national or international meeting. Researchers\' details are shared with their consent.</p></div>' +
+          '<a class="btn-primary" href="#/showcase/add" style="padding:0 22px">Add your presentation' + icon('plus') + '</a>' +
+        '</div>' +
+        '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(180px,100%),1fr));margin-top:56px;border-top:1px solid rgba(255,255,255,.16)">' +
+          [[S.pres.length, 'Presentations', '#FFFFFF'], [S.conferences, 'Conferences', '#FFFFFF'], [S.countries, 'Countries', '#FFFFFF'], [ys, 'Academic years', 'var(--gold)']].map((x) =>
+            '<div style="padding:26px 24px 30px 0"><p style="margin:0;font-size:clamp(40px,2vw + 20px,56px);font-weight:700;line-height:1;color:' + x[2] + '">' + esc(x[0]) + '</p><p class="mono" style="margin:10px 0 0;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--on-ink-2)">' + x[1] + '</p></div>').join('') +
+        '</div>' +
+      '</div>' +
+    '</section>' +
+    '<section aria-labelledby="browse-h" style="background:#FFFFFF;padding:48px 0 96px">' +
+      '<div class="wrap">' +
+        '<h2 id="browse-h" class="sr">Browse presentations</h2>' +
+        '<div style="display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px 24px;padding-bottom:20px;border-bottom:1px solid var(--line)">' +
+          '<div style="display:flex;flex-direction:column;gap:8px;flex:2 1 300px;min-width:0"><label for="sc-q" class="flabel">Search</label><span class="searchbox">' + icon('search') + '<input id="sc-q" class="field" type="search" autocomplete="off" placeholder="Title, field, conference or presenter"></span></div>' +
+          '<div style="display:flex;flex-direction:column;gap:8px"><span class="flabel" id="yr-l">Year</span><div role="group" aria-labelledby="yr-l" id="sc-years" style="display:flex;flex-wrap:wrap;gap:6px"></div></div>' +
+          '<div style="display:flex;flex-direction:column;gap:8px"><span class="flabel" id="fm-l">Format</span><div role="group" aria-labelledby="fm-l" id="sc-fmts" style="display:flex;flex-wrap:wrap;gap:6px"></div></div>' +
+        '</div>' +
+        '<p aria-live="polite" id="sc-count" class="mono" style="margin:16px 0 0;font-size:12.5px;color:var(--muted)"></p>' +
+        '<div id="sc-detail"></div>' +
+        '<div id="sc-list"></div>' +
+        '<div style="margin-top:72px;padding-top:28px;border-top:2px solid var(--navy)">' +
+          '<h2 style="margin:0;font-size:24px;font-weight:700;color:var(--navy)">Earlier highlights</h2>' +
+          '<p style="margin:8px 0 20px;font-size:15.5px;color:var(--muted)">From our alumni hall of fame, 2018–2022.</p>' +
+          '<ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:0 32px">' +
+            EARLIER_HIGHLIGHTS.map((h) => '<li style="display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)"><span class="mono" style="font-size:13px;font-weight:600;color:var(--blue)">' + esc(h[0]) + '</span><span style="font-size:15.5px;color:var(--text)">' + esc(h[1]) + '</span></li>').join('') +
+          '</ul>' +
+        '</div>' +
+      '</div>' +
+    '</section>' +
+    '<section id="add" aria-labelledby="add-h" style="background:var(--bg-2);border-top:1px solid var(--line);padding:80px 0">' +
+      '<div class="wrap" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:28px 48px">' +
+        '<div style="max-width:660px;min-width:0"><p class="kicker">For MDCU presenters</p><h2 id="add-h" class="h2 sm">Presented your research? Add it here.</h2>' +
+        '<p style="margin:14px 0 0;font-size:17px;line-height:1.65;color:var(--text-2)">Fill in one short form with your title, conference, abstract and consent. The team reviews it and it appears on this page — with your name, class and advisors.</p></div>' +
+        '<a class="btn-primary" ' + href(formOr(CONFIG.showcaseFormUrl, 'Add my presentation to the Research Showcase')) + ' style="padding:0 22px">Submit your presentation' + icon('ext') + '</a>' +
+      '</div>' +
+    '</section>';
+  },
+  mount(sub) {
+    const st = this.state;
+    if (st.sel === undefined) st.sel = STORE.pres.length ? STORE.pres[0].id : null;
+    const q = $('#sc-q');
+    q.value = st.q;
+    q.addEventListener('input', () => { st.q = q.value; st.showAll = false; this.update(); });
+    $('#sc-years').addEventListener('click', (e) => { const b = e.target.closest('[data-year]'); if (b) { st.year = b.dataset.year; st.showAll = false; this.update(); } });
+    $('#sc-fmts').addEventListener('click', (e) => { const b = e.target.closest('[data-fmt]'); if (b) { st.fmt = b.dataset.fmt; st.showAll = false; this.update(); } });
+    $('#sc-list').addEventListener('click', (e) => {
+      const b = e.target.closest('[data-pick]');
+      if (b) { st.sel = b.dataset.pick; this.update(); $('#sc-detail').scrollIntoView({ block: 'start', behavior: 'smooth' }); const c = $('#sc-detail [data-close]'); if (c) c.focus({ preventScroll: true }); return; }
+      if (e.target.closest('[data-more]')) { st.showAll = true; this.update(); }
+      if (e.target.closest('[data-clear]')) { st.q = ''; st.year = 'all'; st.fmt = 'all'; q.value = ''; this.update(); }
+    });
+    $('#sc-detail').addEventListener('click', (e) => {
+      if (e.target.closest('[data-close]')) { const was = st.sel; st.sel = null; this.update(); const card = $('[data-pick="' + was + '"]'); if (card) card.focus(); }
+    });
+    if (sub && STORE.pres.some((p) => p.id === sub)) { st.sel = sub; st.q = ''; st.year = 'all'; st.fmt = 'all'; q.value = ''; }
+    this.update();
+    if (sub === 'add') $('#add').scrollIntoView({ block: 'start' });
+    else if (sub && st.sel === sub) $('#sc-detail').scrollIntoView({ block: 'start' });
+  },
+  update() {
+    const st = this.state, S = STORE;
+    const q = st.q.trim().toLowerCase();
+    const list = S.pres.filter((x) => (!q || [x.title, x.field, x.conf, x.confFull, x.presenter, x.where].join(' ').toLowerCase().indexOf(q) !== -1) &&
+      (st.year === 'all' || x.year === st.year) && (st.fmt === 'all' || x.format === st.fmt));
+    const LIMIT = 9;
+    const visible = st.showAll ? list : list.slice(0, LIMIT);
+    const fmts = ['Oral', 'Poster', 'Competition'].filter((f) => S.pres.some((p) => p.format === f));
+    S.pres.forEach((p) => { if (p.format && fmts.indexOf(p.format) === -1) fmts.push(p.format); });
+
+    $('#sc-years').innerHTML = ['all'].concat(S.years).map((y) => '<button type="button" class="chip" data-year="' + esc(y) + '" aria-pressed="' + (st.year === y) + '">' + (y === 'all' ? 'All' : esc(y)) + '</button>').join('');
+    $('#sc-fmts').innerHTML = ['all'].concat(fmts).map((f) => '<button type="button" class="chip" data-fmt="' + esc(f) + '" aria-pressed="' + (st.fmt === f) + '">' + (f === 'all' ? 'All' : esc(f)) + '</button>').join('');
+    $('#sc-count').textContent = plural(list.length, 'presentation', 'presentations');
+
+    const sel = S.pres.find((x) => x.id === st.sel) || null;
+    $('#sc-detail').innerHTML = !sel ? '' :
+      '<article aria-labelledby="sel-h" style="margin-top:24px;padding:clamp(20px,3vw,36px);background:var(--bg-2);border:1px solid var(--line);scroll-margin-top:88px">' +
+        '<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:20px">' +
+          '<span style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px"><span class="mono" style="font-size:13px;font-weight:600;color:var(--navy)">' + esc(sel.conf) + '</span>' +
+          '<span class="mono" style="font-size:12.5px;color:var(--muted)">' + esc([sel.where, sel.when].filter(Boolean).join(' · ')) + '</span>' +
+          '<span class="tag ' + fmtTag(sel.format) + '" style="padding:3px 8px;letter-spacing:.06em">' + esc(sel.format) + '</span></span>' +
+          '<button type="button" class="icon-btn boxed" data-close aria-label="Close details" style="flex:none">' + icon('close') + '</button>' +
+        '</div>' +
+        '<div class="detail-grid">' +
+          '<div style="display:flex;flex-direction:column;gap:18px;min-width:0">' +
+            '<h3 id="sel-h" lang="' + lg(sel.title) + '" style="margin:0;font-size:clamp(22px,1vw + 14px,30px);line-height:1.3;font-weight:700;letter-spacing:-.01em;color:var(--navy);text-wrap:pretty">' + esc(sel.title) + '</h3>' +
+            '<p style="margin:0;font-size:15px;color:var(--muted)">' + esc(sel.confFull) + '</p>' +
+            (sel.abstract ? '<div style="display:flex;flex-direction:column;gap:8px"><h4 style="margin:0;font-size:15px;font-weight:600;color:var(--navy)">Abstract</h4><p lang="' + lg(sel.abstract) + '" style="margin:0;font-size:16px;line-height:1.75;color:var(--text-2)">' + esc(sel.abstract) + '</p>' +
+              (sel.abstractUrl ? '<a ' + href(sel.abstractUrl) + ' style="font-weight:600;font-size:15px">Read the full abstract</a>' : '') + '</div>' : '') +
+          '</div>' +
+          '<dl style="display:flex;flex-direction:column;gap:16px;margin:0;min-width:0">' +
+            '<div style="display:flex;align-items:center;gap:14px;padding-bottom:16px;border-bottom:1px solid var(--line)"><span class="avatar" aria-hidden="true" style="width:48px;height:48px;font-size:18px">' + esc(initialOf(sel.presenter)) + '</span>' +
+              '<span style="display:flex;flex-direction:column;gap:2px"><dt class="dt">Presenter</dt><dd lang="th" style="margin:0;font-size:16px;font-weight:600;color:var(--text)">' + esc(sel.presenter) + ' <span style="font-weight:400;color:var(--muted)">· ' + esc(sel.cls || 'Class not listed') + '</span></dd></span></div>' +
+            (sel.field ? '<div style="display:flex;flex-direction:column;gap:4px"><dt class="dt">Field</dt><dd class="dd">' + esc(sel.field) + '</dd></div>' : '') +
+            (sel.advisors ? '<div style="display:flex;flex-direction:column;gap:4px"><dt class="dt">Advisors</dt><dd lang="th" class="dd" style="line-height:1.6">' + esc(sel.advisors) + '</dd></div>' : '') +
+            (sel.keywords.length ? '<div style="display:flex;flex-direction:column;gap:8px"><dt class="dt">Keywords</dt><dd style="display:flex;flex-wrap:wrap;gap:6px;margin:0">' + sel.keywords.map((w) => '<span class="kw lg" style="background:#FFFFFF">' + esc(w) + '</span>').join('') + '</dd></div>' : '') +
+          '</dl>' +
+        '</div>' +
+      '</article>';
+
+    $('#sc-list').innerHTML = (list.length ?
+      '<ul style="list-style:none;margin:24px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:20px">' +
+        visible.map((x) => '<li style="display:flex">' + presCard(x, { button: true, on: sel && sel.id === x.id }) + '</li>').join('') + '</ul>' :
+      '<div class="empty" style="margin-top:24px"><p style="font-size:18px;font-weight:600;color:var(--navy)">No presentations match those filters</p><button type="button" class="btn-ghost" data-clear style="min-height:44px;padding:0 18px">Clear filters</button></div>') +
+      (!st.showAll && list.length > LIMIT ? '<div style="display:flex;justify-content:center;margin-top:32px"><button type="button" class="btn-ghost lg" data-more>Show all ' + list.length + ' presentations</button></div>' : '');
+  }
+};
+
+PAGES.about = {
+  title: 'About',
+  render() {
+    const tones = [['#16305A', '#FFFFFF'], ['#E6F4FB', '#0D5A86'], ['#FEF4E2', '#7A4A00']];
+    let i = 0;
+    const contactRow = (url, ic, label, value) => '<li style="border-bottom:1px solid var(--line)"><a class="contact-row" ' + href(url) + '>' + icon(ic) +
+      '<span style="display:flex;flex-direction:column"><span class="mono" style="font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)">' + label + '</span><span style="font-size:16px;font-weight:500">' + value + '</span></span></a></li>';
+    return '' +
+    '<section aria-labelledby="about-h" style="background:#FFFFFF;padding:80px 0 72px">' +
+      '<div class="wrap split-2">' +
+        '<div style="min-width:0"><p class="kicker">About us</p><h1 id="about-h" class="h1">Promoting and initiating research at the student level</h1></div>' +
+        '<div style="display:flex;flex-direction:column;gap:18px;min-width:0;padding-top:36px">' +
+          '<p style="margin:0;font-size:19px;line-height:1.7;color:var(--text);text-wrap:pretty">We\'re a community of medical students who are curious about how research is done — and want to do it ourselves.</p>' +
+          '<p class="body" style="text-wrap:pretty">MDCU Research Division is a student-led club under the Student Union of the Faculty of Medicine, Chulalongkorn University, based at Students Academic Affairs.</p>' +
+        '</div>' +
+      '</div>' +
+    '</section>' +
+    '<section aria-label="Our mission" style="background:var(--ink);color:#FFFFFF;padding:72px 0">' +
+      '<div class="wrap" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(380px,100%),1fr));gap:48px 64px">' +
+        [['Mission 01', 'A one-stop shop for student research opportunities', 'Through workshops, lab tours and research talks, we equip students with the inspiration, knowledge and skills to take on medical research.'],
+         ['Mission 02', 'A peer-to-peer research community', 'A safe space where interested students share what they know and learn about doing research — from each other.']].map((m) =>
+          '<div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid rgba(255,255,255,.22);padding-top:24px"><p class="kicker cyan" style="font-weight:600">' + m[0] + '</p>' +
+          '<h2 style="margin:0;font-size:clamp(26px,1.4vw + 14px,34px);line-height:1.2;font-weight:700;letter-spacing:-.015em;color:#FFFFFF">' + m[1] + '</h2>' +
+          '<p style="margin:0;font-size:17px;line-height:1.7;color:var(--on-ink)">' + m[2] + '</p></div>').join('') +
+      '</div>' +
+    '</section>' +
+    '<section aria-labelledby="team-h" style="background:#FFFFFF;padding:96px 0">' +
+      '<div class="wrap">' +
+        '<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px 32px;margin-bottom:40px">' +
+          '<div style="max-width:640px"><p class="kicker">Our structure</p><h2 id="team-h" class="h2">Executive Board ' + esc(BOARD_YEAR) + '</h2></div>' +
+          '<p style="margin:0;max-width:380px;font-size:15.5px;line-height:1.6;color:var(--muted)">Recruitment for the next Core Team is announced on <a ' + href(CONFIG.instagramUrl) + '>Instagram</a>.</p>' +
+        '</div>' +
+        photoSlot(CONFIG.photos.coreTeam, 'Core Team group shot', '21 / 8') +
+        BOARD.map((g) => '<div style="margin-top:48px"><h3 class="mono" style="margin:0 0 20px;padding-bottom:12px;border-bottom:2px solid var(--navy);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--navy)">' + esc(g.group) + '</h3>' +
+          '<ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(250px,100%),1fr));gap:24px 32px">' +
+          g.people.map((p) => { const t = tones[i++ % 3]; return '<li style="display:flex;align-items:center;gap:16px">' +
+            '<span aria-hidden="true" style="display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;flex:none;border-radius:50%;background:' + t[0] + ';color:' + t[1] + ';font-size:22px;font-weight:600">' + esc(p[0].charAt(0)) + '</span>' +
+            '<span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:18px;font-weight:600;color:var(--navy)">' + esc(p[0]) + '</span><span style="font-size:14.5px;line-height:1.45;color:var(--muted)">' + esc(p[1]) + '</span></span></li>'; }).join('') +
+          '</ul></div>').join('') +
+      '</div>' +
+    '</section>' +
+    '<section id="contact" aria-labelledby="contact-h" style="background:var(--bg-2);border-top:1px solid var(--line);padding:96px 0">' +
+      '<div class="wrap split-2">' +
+        '<div style="min-width:0"><p class="kicker">Contact us</p><h2 id="contact-h" class="h2">Get in touch</h2>' +
+          '<p style="margin:16px 0 28px;font-size:17px;line-height:1.65;color:var(--text-2)">Questions about events, projects or joining the team — message us on Instagram or email, and the current team will reply.</p>' +
+          '<ul style="list-style:none;margin:0;padding:0;border-top:1px solid var(--line)">' +
+            contactRow(mailto(), 'mail', 'Email', esc(CONFIG.email)) +
+            contactRow(CONFIG.instagramUrl, 'ig', 'Instagram', '@researchclub.mdcu') +
+            contactRow(facebookPage(), 'fb', 'Facebook page', 'MDCU Research Club') +
+            contactRow(CONFIG.facebookGroupUrl, 'group', 'Facebook group', 'MDCU Young Researcher Group') +
+          '</ul>' +
+        '</div>' +
+        '<div style="display:flex;flex-direction:column;gap:16px;min-width:0;padding-top:8px">' +
+          '<iframe class="map" title="Map — Faculty of Medicine, Chulalongkorn University" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=' + encodeURIComponent(CONFIG.mapQuery) + '&amp;z=16&amp;output=embed"></iframe>' +
+          '<p style="display:flex;gap:12px;margin:0;font-size:15.5px;line-height:1.65;color:var(--text-2)">' + icon('pin', '', 'margin-top:3px;color:var(--blue)') + '<span>MDCU Research Division, Students Academic Affairs, Faculty of Medicine, Chulalongkorn University, 1873 Rama IV Rd, Pathumwan, Bangkok 10330</span></p>' +
+          '<a ' + href('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(CONFIG.mapQuery)) + ' style="font-weight:600;font-size:15px">Open in Google Maps</a>' +
+        '</div>' +
+      '</div>' +
+    '</section>';
+  },
+  mount(sub) { if (sub) { const el = document.getElementById(sub); if (el) el.scrollIntoView({ block: 'start' }); } }
+};
+
+/* ---------- site search ---------- */
+
+const Search = {
+  open() {
+    const o = $('#search'); o.hidden = false; document.body.style.overflow = 'hidden';
+    const q = $('#site-q'); q.value = ''; this.run(''); q.focus();
+  },
+  close() { $('#search').hidden = true; document.body.style.overflow = ''; },
+  run(text) {
+    const q = text.trim().toLowerCase();
+    const out = $('#site-results');
+    if (!q) { out.innerHTML = '<p style="margin:0;padding:20px;font-size:15px;color:var(--muted)">Type a topic, department, conference, presenter or event.</p>'; return; }
+    const hit = (s) => s.toLowerCase().indexOf(q) !== -1;
+    const groups = [
+      ['Opportunities', STORE.opps.filter((o) => hit([o.title, o.dept, o.keywords.join(' ')].join(' '))).map((o) => ['#/opportunities/' + o.id, o.title, (o.isOpenLab ? 'Open lab' : 'Project') + ' · ' + o.dept])],
+      ['Showcase', STORE.pres.filter((p) => hit([p.title, p.field, p.conf, p.confFull, p.presenter].join(' '))).map((p) => ['#/showcase/' + p.id, p.title, p.conf + ' · ' + p.format + ' · ' + p.presenter])],
+      ['Events', STORE.events.filter((e) => hit([e.title, e.venue, e.description, e.type].join(' '))).map((e) => ['#/events/' + e.id, e.title, longDate(e.date) + (e.venue ? ' · ' + e.venue : '')])],
+      ['Pages', [['#/home', 'Home', 'Today’s research, tomorrow’s cure'], ['#/opportunities', 'Opportunities', 'Research projects open to MDCU students'], ['#/opportunities/faculty', 'Post a project', 'For faculty'], ['#/events', 'Events', 'Workshops, lab tours & talks'], ['#/showcase', 'Research Showcase', 'Research by MDCU students, presented worldwide'], ['#/showcase/add', 'Add your presentation', 'For MDCU presenters'], ['#/about', 'About', 'Who we are, Executive Board'], ['#/about/contact', 'Contact us', 'Email, Instagram, Facebook, map']].filter((p) => hit(p[1] + ' ' + p[2]))]
+    ].filter((g) => g[1].length);
+    out.innerHTML = groups.length ? groups.map((g) => '<div class="sgroup"><h3>' + g[0] + ' · ' + g[1].length + '</h3>' +
+      g[1].slice(0, 6).map((r) => '<a class="sres" href="' + r[0] + '" data-close-search><b lang="' + lg(r[1]) + '">' + esc(r[1]) + '</b><span lang="' + lg(r[2]) + '">' + esc(r[2]) + '</span></a>').join('') + '</div>').join('')
+      : '<p style="margin:0;padding:20px;font-size:15px;color:var(--muted)">Nothing found for “' + esc(text.trim()) + '”.</p>';
+  }
+};
+
+/* ---------- router ---------- */
+
+let current = null;
+function parseHash() {
+  const parts = location.hash.replace(/^#\/?/, '').split('/');
+  const page = PAGES[parts[0]] ? parts[0] : 'home';
+  return { page: page, sub: PAGES[parts[0]] ? decodeURIComponent(parts[1] || '') : '' };
+}
+// force: the link clicked points at the address already showing, so no hashchange fires.
+function route(e, force) {
+  const r = parseHash();
+  const app = $('#app');
+  const page = PAGES[r.page];
+  if (current && current.name === r.page && (r.sub || force)) {
+    if (r.sub && page.mount) page.mount(r.sub, true);
+    else if (!r.sub) window.scrollTo(0, 0);
+  } else {
+    if (current && PAGES[current.name].unmount) PAGES[current.name].unmount();
+    app.innerHTML = PAGES[r.page].render();
+    window.scrollTo(0, 0);
+    if (PAGES[r.page].mount) PAGES[r.page].mount(r.sub);
+    if (current) app.focus({ preventScroll: true });
+  }
+  current = { name: r.page };
+  document.title = (r.page === 'home' ? '' : PAGES[r.page].title + ' — ') + 'MDCU Research Division';
+  $$('[data-nav]').forEach((a) => {
+    const on = a.dataset.nav === r.page;
+    a.classList.toggle('on', on);
+    if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+  });
+  setMenu(false);
+}
+
+function setMenu(open) {
+  $('#mobile-nav').classList.toggle('open', open);
+  const b = $('#menu-btn');
+  b.setAttribute('aria-expanded', String(open));
+  b.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+}
+
+// Re-rendering a page already showing (e.g. "#/opportunities/p2" while on Opportunities) only
+// updates the selection, so the mount() calls above get the sub-route.
+PAGES.opportunities.mount = (function (orig) {
+  return function (sub, again) {
+    if (again) {
+      const st = this.state;
+      if (STORE.opps.some((o) => o.id === sub)) { st.sel = sub; st.q = ''; st.dept = 'all'; st.kind = 'all'; $('#opp-q').value = ''; $('#opp-dept').value = 'all'; this.update(); const row = $('[data-pick="' + sub + '"]'); if (row) row.scrollIntoView({ block: 'center' }); this.openSheet(); }
+      else { const el = document.getElementById(sub); if (el) el.scrollIntoView({ block: 'start' }); }
+      return;
+    }
+    orig.call(this, sub);
+    if (sub && !STORE.opps.some((o) => o.id === sub)) { const el = document.getElementById(sub); if (el) el.scrollIntoView({ block: 'start' }); }
+  };
+})(PAGES.opportunities.mount);
+PAGES.showcase.mount = (function (orig) {
+  return function (sub, again) {
+    if (again) {
+      const st = this.state;
+      if (STORE.pres.some((p) => p.id === sub)) { st.sel = sub; st.q = ''; st.year = 'all'; st.fmt = 'all'; $('#sc-q').value = ''; this.update(); $('#sc-detail').scrollIntoView({ block: 'start' }); }
+      else if (sub === 'add') $('#add').scrollIntoView({ block: 'start' });
+      return;
+    }
+    orig.call(this, sub);
+  };
+})(PAGES.showcase.mount);
+
+/* ---------- optional Google Sheets data ---------- */
+
+function parseCSV(text) {
+  const rows = []; let row = [], f = '', inQ = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (inQ) { if (c === '"') { if (text[i + 1] === '"') { f += '"'; i++; } else inQ = false; } else f += c; }
+    else if (c === '"') inQ = true;
+    else if (c === ',') { row.push(f); f = ''; }
+    else if (c === '\n') { row.push(f); rows.push(row); row = []; f = ''; }
+    else if (c !== '\r') f += c;
+  }
+  if (f !== '' || row.length) { row.push(f); rows.push(row); }
+  if (!rows.length) return [];
+  const keys = rows[0].map((k) => k.trim().toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, ''));
+  return rows.slice(1).filter((r) => r.some((v) => v.trim())).map((r) => { const o = {}; keys.forEach((k, i) => { o[k] = (r[i] || '').trim(); }); return o; });
+}
+const yes = (v) => /^(true|yes|y|x|✓|✔|1|approved|ใช่)$/i.test(String(v || '').trim());
+const list = (v, sep) => String(v || '').split(sep || /\s*[,;\n]\s*/).map((s) => s.trim()).filter(Boolean);
+const pick = (r, names) => { for (const n of names) if (r[n] != null && r[n] !== '') return r[n]; return ''; };
+
+const FROM_SHEET = {
+  events: (rows) => rows.map((r) => ({
+    date: pick(r, ['date', 'วันที่']), time: pick(r, ['time', 'เวลา']), type: pick(r, ['type']), title: pick(r, ['title', 'event']),
+    venue: pick(r, ['venue', 'place', 'location']), description: pick(r, ['description', 'details']), status: pick(r, ['status']),
+    seats: pick(r, ['seats']), registerUrl: pick(r, ['register_link', 'register_url', 'registration']), photo: pick(r, ['photo', 'poster', 'photo_link']),
+    photoLabel: pick(r, ['photo_label']) || 'Poster', postUrl: pick(r, ['post_link', 'post_url', 'read_more']),
+    links: list(pick(r, ['links', 'recordings']), /\s*[;\n]\s*/).map((s) => { const m = s.split('|'); return m.length > 1 ? { label: m[0].trim(), url: m.slice(1).join('|').trim() } : { label: 'Watch the recording', url: s }; })
+  })),
+  showcase: (rows) => {
+    const hasApproved = rows.length && Object.prototype.hasOwnProperty.call(rows[0], 'approved');
+    return rows.filter((r) => !hasApproved || yes(r.approved)).map((r) => ({
+      conf: pick(r, ['conference', 'conf']), year: pick(r, ['year']), format: pick(r, ['format']) || 'Poster', featured: yes(r.featured),
+      title: pick(r, ['title']), field: pick(r, ['field']), presenter: pick(r, ['presenter', 'name']), cls: pick(r, ['class', 'cls']),
+      advisors: pick(r, ['advisors', 'advisor']), keywords: list(pick(r, ['keywords'])), abstract: pick(r, ['abstract']), abstractUrl: pick(r, ['abstract_link', 'abstract_url']),
+      location: pick(r, ['location', 'where']), month: pick(r, ['month', 'when']), confFull: pick(r, ['conference_full', 'conference_name'])
+    }));
+  },
+  opportunities: (rows) => rows.map((r) => ({
+    kind: /open/i.test(pick(r, ['type', 'kind'])) ? 'open' : 'project', status: pick(r, ['status']), featured: yes(r.featured),
+    title: pick(r, ['title', 'project']), advisor: pick(r, ['advisor']), dept: pick(r, ['department', 'dept']), contact: list(pick(r, ['contact', 'preferred_contact'])),
+    timeline: pick(r, ['timeline']), keywords: list(pick(r, ['keywords'])), seats: pick(r, ['students_needed', 'seats']), summary: pick(r, ['summary', 'about']),
+    role: pick(r, ['role', 'student_role']), skills: pick(r, ['skills', 'what_you_ll_learn']), requirements: list(pick(r, ['requirements', 'documents']), /\s*[;\n]\s*/)
+  }))
+};
+
+function loadSheets() {
+  const raw = { events: EVENTS, opportunities: OPPORTUNITIES, presentations: PRESENTATIONS, conferences: CONFERENCES };
+  const jobs = [['events', 'events'], ['showcase', 'presentations'], ['opportunities', 'opportunities']].filter((j) => CONFIG.sheets[j[0]]).map((j) =>
+    fetch(CONFIG.sheets[j[0]]).then((res) => { if (!res.ok) throw new Error(res.status); return res.text(); })
+      .then((t) => { const rows = FROM_SHEET[j[0]](parseCSV(t)); if (rows.length) raw[j[1]] = rows; })
+      .catch((err) => console.warn('Could not load the ' + j[0] + ' sheet, using the list in the code instead.', err)));
+  if (!jobs.length) return;
+  Promise.all(jobs).then(() => { STORE = buildStore(raw); current = null; route(); });
+}
+
+/* ---------- start ---------- */
+
+function start() {
+  STORE = buildStore({ events: EVENTS, opportunities: OPPORTUNITIES, presentations: PRESENTATIONS, conferences: CONFERENCES });
+  $('#foot-contact').innerHTML = '<p class="foot-h">Contact</p>' +
+    '<a ' + href(mailto()) + '>' + esc(CONFIG.email) + '</a>' +
+    '<a ' + href(CONFIG.instagramUrl) + '>Instagram · @researchclub.mdcu</a>' +
+    '<a ' + href(facebookPage()) + '>Facebook · MDCU Research Club</a>';
+  $('#copyright').textContent = '© ' + new Date().getFullYear() + ' MDCU Research Division';
+
+  $('#menu-btn').addEventListener('click', () => setMenu(!$('#mobile-nav').classList.contains('open')));
+  document.addEventListener('click', (e) => {
+    const same = e.target.closest('a[href^="#/"]');
+    if (same && same.getAttribute('href') === location.hash) { e.preventDefault(); Search.close(); route(null, true); }
+    if (e.target.closest('#mobile-nav a')) setMenu(false);
+    const t = e.target.closest('[data-action]');
+    if (t && t.dataset.action === 'search') { setMenu(false); Search.open(); }
+    if (t && t.dataset.action === 'close-search') Search.close();
+    if (e.target.closest('[data-close-search]')) Search.close();
+    if (e.target === $('#search')) Search.close();
+  });
+  $('#site-q').addEventListener('input', (e) => Search.run(e.target.value));
+  $('#search').addEventListener('keydown', (e) => { if (e.key === 'Escape') Search.close(); });
+  window.addEventListener('hashchange', route);
+  window.matchMedia('(max-width:960px)').addEventListener('change', (m) => { if (!m.matches && current && current.name === 'opportunities') PAGES.opportunities.closeSheet(); });
+  route();
+  loadSheets();
+}
+start();
+</script>
+</body>
+</html>
