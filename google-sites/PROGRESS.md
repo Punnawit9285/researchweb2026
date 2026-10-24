@@ -18,14 +18,20 @@ Target look: the canvas preview <https://claude.ai/artifact/N422zWcJphBrzWR2AQYZ
   their posters and collapsible text, titles restyled), 05 Research showcase (new), 06 Get involved
   (dark, new). Site footer restyled (name, contact, address, SMCU credit) — old footer wording kept.
 
+- Opportunities: old header removed; eyebrow + H1 + intro (docchula.com note), three-step row (grey), the
+  original spreadsheet embed kept, "For faculty" section (grey; Email the club — add the faculty form link
+  when it exists). Events: intro, Upcoming, Previous events with the 3 existing posts (titles restyled,
+  empty placeholder row removed). Showcase: dark hero, "Presentations by year" archive (the year
+  collapsibles and conference pages are untouched). About: hero + mission (dark) + "Get in touch";
+  the contact rows, address, map and personal-contact block are untouched.
+
 ## To do
 
-1. Opportunities, Events, Showcase, About pages restyled the same way.
-2. Apps Script widgets (README §1.4) — blocked until **researchclub@docchula.com** is signed in to Chrome
+1. Apps Script widgets (README §1.4) — blocked until **researchclub@docchula.com** is signed in to Chrome
    (only the owner can approve Google's permission screen). Then embed:
    Home `stats` + `open-now` (hero right column), `events-home`, `showcase-home`;
    Opportunities `opportunities`; Events `events`; Showcase `showcase`.
-3. Review the draft, then Publish.
+2. Review the draft, then Publish (not published since the first publish — ask the owner first).
 
 ## Editor tips (for browser automation)
 
