@@ -328,7 +328,8 @@ var Parse = (function () {
     advisors: ['advisor', 'อาจารย์ที่ปรึกษา'],
     abstract: ['abstract', 'บทคัดย่อ'],
     reflection: ['reflection', 'สิ่งที่ได้เรียนรู้'],
-    photo: ['photo', 'รูป']
+    photo: ['photo', 'รูป'],
+    page: ['page link']
   };
 
   function formatOf(raw) {
@@ -371,7 +372,8 @@ var Parse = (function () {
         reflection: cell(row, col.reflection),
         presenter: cell(row, col.presenter),
         cls: cell(row, col.cls).toUpperCase().replace(/\s+/g, ''),
-        photo: driveImageUrl(cell(row, col.photo))
+        photo: driveImageUrl(cell(row, col.photo)),
+        page: safeUrl(cell(row, col.page))
       });
     }
     return out.sort(function (a, b) { return (b.date || b.year) > (a.date || a.year) ? 1 : -1; });

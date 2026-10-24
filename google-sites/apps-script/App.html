@@ -583,6 +583,7 @@
             '<p class="abs clamp" id="abs"' + lang(s.abstract) + '>' + esc(s.abstract) + '</p>' +
             '<button type="button" data-more style="margin-top:8px;padding:0;border:0;background:none;color:var(--link);font-weight:600;cursor:pointer;min-height:40px">Read the full abstract</button></div>' : '') +
           (s.reflection ? '<div><h4 style="margin:0 0 8px;font-size:15px;color:var(--navy-800)">Reflection</h4><p class="abs"' + lang(s.reflection) + '>' + esc(s.reflection) + '</p></div>' : '') +
+          (s.page ? '<p style="margin:0"><a href="' + esc(s.page) + '">View the original page</a></p>' : '') +
         '</div>' +
         '<dl style="display:flex;flex-direction:column;gap:16px;margin:0;min-width:0">' +
           '<div class="person" style="border-top:0;padding-top:0">' + presenterBadge(s) +
