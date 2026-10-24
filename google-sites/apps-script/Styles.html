@@ -27,6 +27,8 @@
   html, body { margin: 0; }
   body { font-family: var(--sans); color: var(--ink); background: #FFFFFF; -webkit-font-smoothing: antialiased; font-size: 16px; line-height: 1.6; }
   body.dark { background: var(--navy-950); color: var(--on-dark); }
+  /* Google Sites insets text boxes by 8px but not embeds; this lines widget content up with the text above it. */
+  body.embedded { padding: 0 8px; }
   a { color: var(--link); text-underline-offset: 3px; }
   a:hover { color: #0B4F7A; }
   :focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }

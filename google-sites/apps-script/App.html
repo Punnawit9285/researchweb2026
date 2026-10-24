@@ -736,7 +736,10 @@
 
   // Google Sites runs embeds in a frame that isn't allowed to navigate the page around it, so links to the
   // site's pages open a new tab there. The standalone page (&full=1) can go back to the site in place.
-  if (!CONFIG.fullPage) document.querySelector('base').setAttribute('target', '_blank');
+  if (!CONFIG.fullPage) {
+    document.querySelector('base').setAttribute('target', '_blank');
+    document.body.classList.add('embedded');
+  }
 
   // Each embed sits on a Google Sites section; its background has to match that section exactly.
   var DARK = ['open-now', 'hero-actions', 'stats', 'showcase-stats'];
