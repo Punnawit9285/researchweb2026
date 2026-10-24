@@ -48,6 +48,15 @@ function include(name) {
   return HtmlService.createHtmlOutputFromFile(name).getContent();
 }
 
+/**
+ * Run from the editor once after deploying, or whenever the site says a section "couldn't load":
+ * it makes Google ask for any permission that hasn't been granted yet (tick every box).
+ */
+function authorize() {
+  ScriptApp.requireAllScopes(ScriptApp.AuthMode.FULL);
+  return SpreadsheetApp.openById(CONFIG.OPPORTUNITIES_SHEET_ID).getName();
+}
+
 /** Run from the editor to make sheet edits show up immediately instead of within CACHE_SECONDS. */
 function clearCache() {
   var cache = CacheService.getScriptCache();
