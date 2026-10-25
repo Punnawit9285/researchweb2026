@@ -29,6 +29,8 @@
   body.dark { background: var(--navy-950); color: var(--on-dark); }
   /* Google Sites insets text boxes by 8px but not embeds; this lines widget content up with the text above it. */
   body.embedded { padding: 0 8px; }
+  /* Dark sections in Sites draw their own navy (the Home hero has the club mark on it), so let it show through. */
+  body.dark.embedded { background: transparent; }
   a { color: var(--link); text-underline-offset: 3px; }
   a:hover { color: #0B4F7A; }
   :focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
