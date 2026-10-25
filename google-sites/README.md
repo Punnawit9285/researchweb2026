@@ -153,6 +153,12 @@ fixed height in Sites; anything taller scrolls inside the box, so start with the
    University", then embed `?view=hero-actions` (the two buttons and the live numbers, about 660 × 200 px).
    Right — embed `?view=open-now` (about 460 × 520 px). Double-click the empty right half of the section to
    insert it there.
+   Background: **Section colors › Image › Select › By URL** with the raw GitHub link to
+   `assets/hero-logo-background.png` (the club mark, faint, on navy). Then click the sparkle icon to remove the
+   *readability adjustment* and leave **Anchor image** in the centre: the mark sits at the right on laptops and
+   drops out of view on phones, like the design. Dark widgets are transparent, so it shows behind them. To change
+   the mark, edit `assets/hero-logo-background.svg`, mirror the change in `assets/render-hero-background.mjs`
+   and run it (`node google-sites/assets/render-hero-background.mjs`).
 2. **MDCU Research club** — the old quote ("We are the community of medical students…") beside the group photo,
    **About us** button.
 3. **Our mission** (Emphasis 1) — the two old statements, each with its photo and the old buttons

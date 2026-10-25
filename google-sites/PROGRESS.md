@@ -19,7 +19,8 @@ Target look: the canvas preview <https://claude.ai/artifact/N422zWcJphBrzWR2AQYZ
   - Checked from a signed-out client: the public copy sends titles, departments and seats only (every project
     `locked`, no advisor/contact/timeline/description); the members copy redirects to docchula.com sign-in.
 - **Home**: hero = native text + `hero-actions` embed (buttons + live numbers) on the left, `open-now` embed
-  (three newest projects) on the right. 01–03 native. 04 Events = header + `events-home` embed (Upcoming card +
+  (three newest projects) on the right, on a background image of the translucent club mark
+  (`assets/hero-logo-background.png`, anchored centre, readability adjustment off). 01–03 native. 04 Events = header + `events-home` embed (Upcoming card +
   two "What's new" teasers that link to the Events page). 05 Showcase = header + `showcase-home` embed.
   06 Get involved native.
 - **Opportunities**: hero, three steps, `opportunities` embed (project finder) in place of the old sheet embed
