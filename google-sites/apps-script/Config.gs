@@ -34,7 +34,7 @@ var CONFIG = {
     'คณะผู้บริหารด้านยุทธศาสตร์องค์กร': 'ฝ่ายยุทธศาสตร์องค์กร'
   },
 
-  // Used for buttons inside the widgets. Page links open in the same tab.
+  // Used for buttons inside the widgets. Inside Google Sites they open in a new tab (embeds can't navigate the page).
   LINKS: {
     site: 'https://sites.google.com/docchula.com/mdcuresearch-docchula',
     opportunitiesPage: 'https://sites.google.com/docchula.com/mdcuresearch-docchula/opportunities',

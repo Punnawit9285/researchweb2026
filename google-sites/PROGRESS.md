@@ -3,12 +3,14 @@
 Working notes for whoever continues the rebuild (person or Claude session). The live site is
 <https://sites.google.com/docchula.com/mdcuresearch-docchula>; the editor is the same site with `/edit`.
 Target look: the canvas preview <https://claude.ai/artifact/N422zWcJphBrzWR2AQYZMj> and the recipes in
-`README.md` §2.3. Everything below happens in the **draft** — nothing is live until someone presses Publish.
+`README.md` §2.3. Edits happen in the **draft** — nothing is live until someone presses Publish.
+The old public site <https://sites.google.com/view/mdcuresearch/> belongs to another account and is left as it is:
+it is now "the old website", linked from the new site's menu.
 
 ## Done
 
-- Published once (theme, Home headline, page renames, Opportunities intro) — see git log for the date.
-  Everything else below is draft only.
+- The redesign below is published (docchula.com visitors see it). Still in the draft only: the **Old website**
+  menu link and the Home background anchor change.
 - Theme *MDCU Research 2026*: white top navigation, amber underline on the current page,
   amber filled buttons on dark (Style 3) sections.
 - **Widgets** (Apps Script project *MDCU site widgets*, owner punnawit.wsr@docchula.com, permissions approved):
@@ -30,10 +32,14 @@ Target look: the canvas preview <https://claude.ai/artifact/N422zWcJphBrzWR2AQYZ
 - **Showcase**: dark hero with `showcase-stats` embed and a native "Add your presentation +" button (links to the
   showcase form), `showcase` embed (search/filter browser), then the year archive (untouched).
 - **Footer** (site-wide): three columns — name + description (+ © line), Contact (email, Instagram), Find us.
+- **Old website** link at the end of the menu (opens <https://sites.google.com/view/mdcuresearch/> in a new tab).
+- Checked before going public: the About page's personal contact is already on the old public site's Contact us
+  page; the hidden pages (Conference/Abstract templates, test, Alumni Hall of Fame) hold nothing private.
 
 ## To do
 
-1. Review the draft (Preview), then **Publish** — ask the owner first.
+1. Owner: **Publish** the draft, then **Share › General access › Published site › Public** so visitors without a
+   docchula.com account see the new site (the owner chose this over rebuilding the old public site).
 2. Add the faculty form link when it exists (Opportunities "For faculty"; `facultyForm` in `Config.gs`).
 3. Move or share the Apps Script project and the *Website data* sheet with researchclub@docchula.com so they
    survive graduation. The script must stay owned by a docchula.com account (member check).
